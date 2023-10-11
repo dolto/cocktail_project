@@ -16,3 +16,10 @@
 
 그외 
 - App.tsx 부분에 라우팅 초본 작성
+
+현재 구현된 메서드
+- recipeLoad() 레시피 로드
+- cocktailNameLoad() 레시피 이름 로드
+- keywordLoad() 레시피의 재료 목록 로드
+- inputRecipeCocktailName(string) 입력받은 문자열에서 칵테일 자동완성문 리스트
+- inputRecipeKeyword(string) 입력받은 문자열에서 재료 자동완성문 리스트 반환

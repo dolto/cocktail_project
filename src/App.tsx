@@ -1,6 +1,5 @@
 import React from 'react';
 import AppPage from './styled/App'
-import './App.css';
 import HeadMenu from './Component/Header/HeadMenu';
 import Footer from './Component/Footer/Footer';
 import AboutUs from './Component/Main/AboutUs';
@@ -11,7 +10,19 @@ import OneDayClassList from './Component/Main/OneDayClassList';
 import OneDayClassInfo from './Component/Main/OneDayClassInfo';
 import StoreList from './Component/Main/StoreList';
 
+//테스트를 위한 임포트
+import recipeLoad from './Component/Fn/RecipeLoad';
+import cocktailNameLoad from './Component/Fn/CocktailNameLoad';
+import keywordLoad from './Component/Fn/KeywordLoad';
+import inputRecipeCocktailName from './Component/Fn/InputRecipe_CocktailName';
+import inputRecipeKeyword from './Component/Fn/InputRecipe_Keyword copy';
+
 function App() {
+  //recipeLoad(); //레시피 로드 잘되는가
+  //cocktailNameLoad(); //레시피 이름 로드 잘 되는가
+  //keywordLoad() //레시피의 재료 목록을 로드 잘 하는가.
+  //inputRecipeCocktailName('h'); //입력받은 문자열에서 칵테일 자동완성문이 잘 되는가
+  inputRecipeKeyword('h');
   return (
     <AppPage>
       <HeadMenu></HeadMenu>
