@@ -13,6 +13,7 @@
 5. src/Component/Main: 페이지의 중단부분에 출력할 컴포넌트들
 6. src/Component/Footer: 페이지의 하단부분에 출력할 컴포넌트들
 7. src/styled: 각 페이지의 스타일 컴포넌트들을 정의할 부분들 (vscode의 vscode-styled-components 확장 필요)
+8. src/res: 각 페이지에서 사용할 사진과 같은 컨텐츠들 (안에 폴더를 만들거나 사진을 삽입하는 건 독립적으로 수행할 것)
 
 그외 
 - App.tsx 부분에 라우팅 초본 작성
