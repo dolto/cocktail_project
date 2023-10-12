@@ -1,19 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../Css/HeadMenu.css";
-import logoimg from "../res/img/ic_cocktail.png"
+import logoimg from "../res/img/ic_cocktail.png";
 
 const HeadMenu: React.FC = () => {
   return (
     <header className="header">
-      <h1 className="container">
+      <div className="container">
         <Link to="/" className="link-style">
           <div className="content">
-            <img src={logoimg} />
+            <img src={logoimg} alt="Cocktail Sense Logo" />
             <div className="logo">Cocktail Sense</div>
           </div>
         </Link>
-      </h1>
+      </div>
       <nav>
         <ul>
           <li>
@@ -38,6 +38,7 @@ const HeadMenu: React.FC = () => {
           </li>
         </ul>
       </nav>
+
       <div className="login-button">
         <Link to="/login" className="link-style">
           Login
