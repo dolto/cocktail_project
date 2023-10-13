@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../Css/HeadMenu.css";
-import logoimg from "../res/img/ic_cocktail.png";
+import logoimg from "../../res/img/ic_cocktail.png";
+import HeadMenuPage from "../../styled/HeadMenu";
 
 const HeadMenu: React.FC = () => {
   return (
-    <header className="header">
+    <HeadMenuPage>
       <div className="container">
         <Link to="/" className="link-style">
           <div className="content">
@@ -47,7 +47,7 @@ const HeadMenu: React.FC = () => {
           <button>Sign Up</button>
         </Link>
       </div>
-    </header>
+    </HeadMenuPage>
   );
 };
 
