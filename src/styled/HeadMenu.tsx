@@ -1,17 +1,19 @@
-@font-face {
+import styled from "styled-components";
+import Sinoreta_PERSONAL_USE_ONLY from "../res/font/Sinoreta_PERSONAL_USE_ONLY.woff";
+
+const HeadMenuPage = styled.header`
+  @font-face {
   font-family: "Sinoreta_PERSONAL_USE_ONLY";
-  src: url("../res/font/Sinoreta_PERSONAL_USE_ONLY.woff") format("woff");
+  src: url(${Sinoreta_PERSONAL_USE_ONLY}) format("woff");
 }
 
-header {
-  background-color: #050505;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  /* 그리드 레이아웃, 로고, 네비게이션, 로그인 버튼 간격 설정 */
-  align-items: center;
-  padding: 0 20px;
-  height: 6rem;
-}
+background-color: #050505;
+display: grid;
+grid-template-columns: auto auto auto;
+/* 그리드 레이아웃, 로고, 네비게이션, 로그인 버튼 간격 설정 */
+align-items: center;
+padding: 0 20px;
+height: 6rem;
 
 .container {
   display: flex;
@@ -94,4 +96,7 @@ nav li:last-child {
 
 .login-button button:hover {
   background-color: #ff6c40;
-}
+}  
+`;
+
+export default HeadMenuPage;
