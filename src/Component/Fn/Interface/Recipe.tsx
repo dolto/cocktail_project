@@ -5,8 +5,8 @@ interface Ingredients {
 };
 
 interface Recipe {
-    ID : "IBA_ 0001",
-	Image : "Cocktail/Alexander.webp",
+    ID : string,
+	Image : string,
     Name: string,
     Ingredients: Ingredients[],
     Method: string,
