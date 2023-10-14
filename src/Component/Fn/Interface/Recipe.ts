@@ -5,6 +5,8 @@ interface Ingredients {
 };
 
 interface Recipe {
+    ID : string,
+	Image : string,
     Name: string,
     Ingredients: Ingredients[],
     Method: string,
@@ -12,4 +14,4 @@ interface Recipe {
     Histoy: string
 };
 
-export default Recipe;
+export type {Recipe, Ingredients};

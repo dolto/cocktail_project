@@ -1,5 +1,5 @@
 import getData from "./GetDataFn";
-import Recipe from "./Interface/Recipe";
+import {Recipe} from "./Interface/Recipe";
 
 interface Cocktail_api {
     "Cocktail":{

@@ -12,7 +12,7 @@ const inputRecipeCocktailName = async (arg:string): Promise<string[]> => {
     result = cocktailNameList.filter(name => {
         return RegExp(regex).exec(name);
     })
-    console.log(result);
+    //console.log(result);
     return result;
 }
 

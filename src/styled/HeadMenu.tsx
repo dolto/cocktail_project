@@ -1,12 +1,6 @@
 import styled from "styled-components";
-import Sinoreta_PERSONAL_USE_ONLY from "../res/font/Sinoreta_PERSONAL_USE_ONLY.woff";
 
 const HeadMenuPage = styled.header`
-  @font-face {
-  font-family: "Sinoreta_PERSONAL_USE_ONLY";
-  src: url(${Sinoreta_PERSONAL_USE_ONLY}) format("woff");
-}
-
 background-color: #050505;
 display: grid;
 grid-template-columns: auto auto auto;

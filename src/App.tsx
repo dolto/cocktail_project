@@ -16,13 +16,22 @@ import cocktailNameLoad from './Component/Fn/CocktailNameLoad';
 import keywordLoad from './Component/Fn/KeywordLoad';
 import inputRecipeCocktailName from './Component/Fn/InputRecipe_CocktailName';
 import inputRecipeKeyword from './Component/Fn/InputRecipe_Keyword copy';
+import searchRecipeCocktailName from './Component/Fn/SearchRecipe_Cocktail';
+import searchRecipeKeyword from './Component/Fn/SearchRecipe_Keyword';
+import RecipeSearch from './Component/Header/RecipeSearch';
+import LocationSearch from './Component/Header/LocationSearch';
 
 function App() {
-  //recipeLoad(); //레시피 로드 잘되는가
+  // recipeLoad().then(
+  //   (res) => {
+  //     searchRecipeCocktailName(res, "h");
+  //     searchRecipeKeyword(res, ["Cognac", "Crème de Cacao (Brown)", "Fresh Cream"]);
+  //   }
+  // ); //레시피 로드 잘되는가
   //cocktailNameLoad(); //레시피 이름 로드 잘 되는가
   //keywordLoad() //레시피의 재료 목록을 로드 잘 하는가.
   //inputRecipeCocktailName('h'); //입력받은 문자열에서 칵테일 자동완성문이 잘 되는가
-  inputRecipeKeyword('h');
+  //inputRecipeKeyword('h');
   return (
     <AppPage>
       <HeadMenu></HeadMenu>
@@ -32,23 +41,38 @@ function App() {
         }></Route>
 
         <Route path='/Recipe' element={
-        <RecipeList></RecipeList>
+          <>
+            <RecipeSearch/>
+            <RecipeList></RecipeList>
+          </>
         }>
           <Route path='/Recipe/Info' element={
-          <RecipeInfo></RecipeInfo>
+            <>
+              <RecipeSearch/>
+              <RecipeInfo></RecipeInfo>
+            </>
           }></Route>
         </Route>
 
         <Route path='/OneDayClass' element={
-        <OneDayClassList></OneDayClassList>
+          <>
+            <LocationSearch />
+            <OneDayClassList></OneDayClassList>
+          </>
         }>
           <Route path='/OneDayClass/Info' element={
-          <OneDayClassInfo></OneDayClassInfo>
+            <>
+              <LocationSearch />
+              <OneDayClassInfo></OneDayClassInfo>
+            </>
           }></Route>
         </Route>
 
         <Route path='/StoreList' element={
-        <StoreList></StoreList>
+          <>
+            <LocationSearch/>
+            <StoreList></StoreList>
+          </>
         }>
         </Route>
         

@@ -13,7 +13,7 @@ const inputRecipeKeyword = async (arg:string): Promise<string[]> => {
     result = keywordList.filter(keyword => {
         return RegExp(regex).exec(keyword);
     });
-    console.log(result);
+    //console.log(result);
     return result;
 }
 
