@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 const SearchBar = styled.form`
-  background-color: white;
-  width: calc(100% - 10rem);
-  margin: auto;
-  display: grid;
-  grid-gap: 0.5rem;
-  grid-template-columns: 0.5fr 2fr 0.5fr;
-  height: 67px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
+
+  header{
+    text-align: center;
+    font-family: "Sinoreta_PERSONAL_USE_ONLY";
+    color: white;
+    font-size: 10rem;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-top: 2rem;
+  }
   .keyword {
     background-color: #D9D9D9;
     border-radius: 8px;
@@ -21,7 +21,20 @@ const SearchBar = styled.form`
     margin: 0.5rem;
     scale: 1.5;
   }
-  section {
+  #format{
+    background-color: white;
+    width: calc(100% - 10rem);
+    margin: auto;
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    height: 67px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+  article {
     justify-content: center;
     align-items: center;
     margin-left: 1rem;

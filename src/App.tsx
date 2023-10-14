@@ -19,6 +19,7 @@ import inputRecipeKeyword from './Component/Fn/InputRecipe_Keyword copy';
 import searchRecipeCocktailName from './Component/Fn/SearchRecipe_Cocktail';
 import searchRecipeKeyword from './Component/Fn/SearchRecipe_Keyword';
 import RecipeSearch from './Component/Header/RecipeSearch';
+import LocationSearch from './Component/Header/LocationSearch';
 
 function App() {
   // recipeLoad().then(
@@ -46,20 +47,32 @@ function App() {
           </>
         }>
           <Route path='/Recipe/Info' element={
-          <RecipeInfo></RecipeInfo>
+            <>
+              <RecipeSearch/>
+              <RecipeInfo></RecipeInfo>
+            </>
           }></Route>
         </Route>
 
         <Route path='/OneDayClass' element={
-        <OneDayClassList></OneDayClassList>
+          <>
+            <LocationSearch />
+            <OneDayClassList></OneDayClassList>
+          </>
         }>
           <Route path='/OneDayClass/Info' element={
-          <OneDayClassInfo></OneDayClassInfo>
+            <>
+              <LocationSearch />
+              <OneDayClassInfo></OneDayClassInfo>
+            </>
           }></Route>
         </Route>
 
         <Route path='/StoreList' element={
-        <StoreList></StoreList>
+          <>
+            <LocationSearch/>
+            <StoreList></StoreList>
+          </>
         }>
         </Route>
         
