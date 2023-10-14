@@ -91,6 +91,8 @@ const RecipeSearch = () => {
                                     if (getcategory === "name"){
                                         const recipes = await getrecipes;
                                         const result = searchRecipeCocktailName(recipes, s);
+                                        setautoword([]);
+                                        settextvalue("");
                                         console.log(result);
                                         setrecipes(result);
                                         return;
