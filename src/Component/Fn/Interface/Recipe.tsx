@@ -5,6 +5,8 @@ interface Ingredients {
 };
 
 interface Recipe {
+    ID : "IBA_ 0001",
+	Image : "Cocktail/Alexander.webp",
     Name: string,
     Ingredients: Ingredients[],
     Method: string,
@@ -12,4 +14,4 @@ interface Recipe {
     Histoy: string
 };
 
-export default Recipe;
+export type {Recipe, Ingredients};

@@ -24,3 +24,4 @@
 - keywordLoad() 레시피의 재료 목록 로드
 - inputRecipeCocktailName(string) 입력받은 문자열에서 칵테일 자동완성문 리스트
 - inputRecipeKeyword(string) 입력받은 문자열에서 재료 자동완성문 리스트 반환
+- searchRecipe 두개 구현

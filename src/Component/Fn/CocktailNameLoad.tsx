@@ -1,4 +1,4 @@
-import Recipe from "./Interface/Recipe";
+import {Recipe} from "./Interface/Recipe";
 import recipeLoad from "./RecipeLoad";
 
 const cocktailNameLoad = async ():Promise<string[]> => {
