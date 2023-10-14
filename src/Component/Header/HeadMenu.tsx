@@ -17,22 +17,22 @@ const HeadMenu: React.FC = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/about" className="link-style">
+            <Link to="/" className="link-style">
               About Us
             </Link>
           </li>
           <li>
-            <Link to="/recipes" className="link-style">
+            <Link to="/Recipe" className="link-style">
               Recipes
             </Link>
           </li>
           <li>
-            <Link to="/cocktail-bar" className="link-style">
+            <Link to="/StoreList" className="link-style">
               Cocktail Bar
             </Link>
           </li>
           <li>
-            <Link to="/class" className="link-style">
+            <Link to="/OneDayClass" className="link-style">
               Class
             </Link>
           </li>

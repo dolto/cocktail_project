@@ -18,6 +18,7 @@ import inputRecipeCocktailName from './Component/Fn/InputRecipe_CocktailName';
 import inputRecipeKeyword from './Component/Fn/InputRecipe_Keyword copy';
 import searchRecipeCocktailName from './Component/Fn/SearchRecipe_Cocktail';
 import searchRecipeKeyword from './Component/Fn/SearchRecipe_Keyword';
+import RecipeSearch from './Component/Header/RecipeSearch';
 
 function App() {
   // recipeLoad().then(
@@ -39,7 +40,10 @@ function App() {
         }></Route>
 
         <Route path='/Recipe' element={
-        <RecipeList></RecipeList>
+          <>
+            <RecipeSearch/>
+            <RecipeList></RecipeList>
+          </>
         }>
           <Route path='/Recipe/Info' element={
           <RecipeInfo></RecipeInfo>
