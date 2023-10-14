@@ -1,5 +1,7 @@
 import SearchBar from "../../styled/SearchBar";
 
+
+
 const LocationSearch = () => {
     return (
         <SearchBar>

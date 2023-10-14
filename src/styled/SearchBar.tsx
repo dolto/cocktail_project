@@ -16,23 +16,30 @@ const SearchBar = styled.form`
     border-radius: 8px;
     padding: 10px;
     font-size: 1rem;
+    transition: 0.3s;
+    user-select: none;
+  }
+  .keyword:hover{
+    background-color: #737579;
   }
   .fa-magnifying-glass{
     margin: 0.5rem;
     scale: 1.5;
   }
   #format{
+    position: relative;
     background-color: white;
     width: calc(100% - 10rem);
     margin: auto;
     display: grid;
     grid-gap: 0.5rem;
     grid-template-columns: 0.5fr 2fr 0.5fr;
-    height: 67px;
+    min-height: 67px;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     margin-top: 2rem;
+    overflow: visible;
   }
   article {
     justify-content: center;
@@ -72,6 +79,24 @@ const SearchBar = styled.form`
     font-size: 1rem;
     background: linear-gradient( to top, #050810, #737579);
     color: white;
+  }
+  #autoword {
+    position: absolute;
+    background-color: #D9D9D9;
+    top: 67px;
+    left: 16%;
+    right: 16%;
+  }
+  .nav{
+    padding: 0.5rem;
+    transition: 0.3s;
+  }
+  .nav:hover{
+    background-color: #737579;
+    user-select: none;
+  }
+  .lol{
+    color: blue;
   }
 `;
 
