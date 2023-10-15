@@ -1,14 +1,18 @@
 import styled from "styled-components";
-import Sinoreta_PERSONAL_USE_ONLY from "../res/font/Sinoreta_PERSONAL_USE_ONLY.woff";
-import AboutUs from "../Component/Main/AboutUs";
 
 const AboutUsPage = styled.header`
-  @font-face {
-  font-family: "Sinoreta_PERSONAL_USE_ONLY";
-  src: url(${Sinoreta_PERSONAL_USE_ONLY}) format("woff");
+/* AboutUs.css */
+
+section{
+  opacity: 0.3;
+  transform: translate(0, 2rem);
+  transition: 1s;
+}
+.show{
+  transform: translate(0, 0);
+  opacity: 1;
 }
 
-/* AboutUs.css */
 .section1{
   position: relative;
 }
