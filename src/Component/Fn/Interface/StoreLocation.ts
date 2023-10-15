@@ -1,10 +1,11 @@
 import LocationInfo from "./LocationInfo";
 
 interface StoreLocation extends LocationInfo{
-    // do: string,
-    // si: string,
-    detailed_address:string
-    // bar_name: string,
+    // ID: string,
+    // Address_category: string,
+    // Address:string,
+    // Infomation:string,
+    // Etc: string
     info: string
 };
 

@@ -20,6 +20,7 @@ import searchRecipeCocktailName from './Component/Fn/SearchRecipe_Cocktail';
 import searchRecipeKeyword from './Component/Fn/SearchRecipe_Keyword';
 import RecipeSearch from './Component/Header/RecipeSearch';
 import LocationSearch from './Component/Header/LocationSearch';
+import oneDayClassLoad from './Component/Fn/OneDayClassLoad';
 
 function App() {
   // recipeLoad().then(
@@ -32,6 +33,9 @@ function App() {
   //keywordLoad() //레시피의 재료 목록을 로드 잘 하는가.
   //inputRecipeCocktailName('h'); //입력받은 문자열에서 칵테일 자동완성문이 잘 되는가
   //inputRecipeKeyword('h');
+  // oneDayClassLoad().then((data)=>{
+  //   console.log(data);
+  // }) //원데이 클래스 로드 잘 되는가
   return (
     <AppPage>
       <HeadMenu></HeadMenu>
@@ -56,13 +60,13 @@ function App() {
 
         <Route path='/OneDayClass' element={
           <>
-            <LocationSearch />
+            <LocationSearch p={"class"}/>
             <OneDayClassList></OneDayClassList>
           </>
         }>
           <Route path='/OneDayClass/Info' element={
             <>
-              <LocationSearch />
+              <LocationSearch p={"class"}/>
               <OneDayClassInfo></OneDayClassInfo>
             </>
           }></Route>
@@ -70,7 +74,7 @@ function App() {
 
         <Route path='/StoreList' element={
           <>
-            <LocationSearch/>
+            <LocationSearch p={"store"}/>
             <StoreList></StoreList>
           </>
         }>

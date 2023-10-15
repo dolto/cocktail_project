@@ -18,12 +18,12 @@ const AboutUs = () => {
       const sectionList:NodeListOf<HTMLElement> = document.querySelectorAll('section');
       sectionList.forEach((node) => {
         if(window.innerHeight > (node.getBoundingClientRect().top)){
-          console.log("is show");
-          console.log(node);
+          //console.log("is show");
+          //console.log(node);
           node.classList.add("show");
         }else{
-          console.log("is not show");
-          console.log(node);
+          //console.log("is not show");
+          //console.log(node);
           node.classList.remove("show");
         }
       });
