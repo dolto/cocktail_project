@@ -21,6 +21,7 @@ import searchRecipeKeyword from './Component/Fn/SearchRecipe_Keyword';
 import RecipeSearch from './Component/Header/RecipeSearch';
 import LocationSearch from './Component/Header/LocationSearch';
 import oneDayClassLoad from './Component/Fn/OneDayClassLoad';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   // recipeLoad().then(
@@ -43,42 +44,38 @@ function App() {
         <Route path='/' element={
         <AboutUs></AboutUs>
         }></Route>
-
         <Route path='/Recipe' element={
           <>
-            <RecipeSearch/>
-            <RecipeList></RecipeList>
+            <RecipeSearch is_update={false}/>
+            <RecipeList ></RecipeList>
           </>
-        }>
-          <Route path='/Recipe/Info' element={
-            <>
-              <RecipeSearch/>
-              <RecipeInfo></RecipeInfo>
-            </>
-          }></Route>
-        </Route>
+        }></Route>
+        <Route path='/Recipe/Info' element={
+          <>
+            <RecipeSearch is_update={false}/>
+            <RecipeInfo></RecipeInfo>
+          </>
+        }></Route>
 
         <Route path='/OneDayClass' element={
           <>
-            <LocationSearch p={"class"}/>
-            <OneDayClassList></OneDayClassList>
+          <LocationSearch p={"class"}/>
+          <OneDayClassList></OneDayClassList>
           </>
-        }>
-          <Route path='/OneDayClass/Info' element={
-            <>
-              <LocationSearch p={"class"}/>
-              <OneDayClassInfo></OneDayClassInfo>
-            </>
-          }></Route>
-        </Route>
-
-        <Route path='/StoreList' element={
+        }></Route>
+        <Route path='/OneDayClass/Info' element={
           <>
-            <LocationSearch p={"store"}/>
-            <StoreList></StoreList>
+          <LocationSearch p={"class"}/>
+          <OneDayClassInfo/>
           </>
-        }>
-        </Route>
+        }></Route>
+
+        <Route path='/Store' element={
+          <>
+          <LocationSearch p={"store"}/>
+          <StoreList></StoreList>
+          </>
+        }></Route>
         
       </Routes>
       <Footer></Footer>

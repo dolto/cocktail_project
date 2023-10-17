@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBar from "../../styled/SearchBar";
 import inputRecipeKeyword from "../Fn/InputRecipe_Keyword copy";
 import inputRecipeCocktailName from "../Fn/InputRecipe_CocktailName";
@@ -7,13 +7,31 @@ import searchRecipeKeyword from "../Fn/SearchRecipe_Keyword";
 import { Recipe } from "../Fn/Interface/Recipe";
 import recipeLoad from "../Fn/RecipeLoad";
 import searchRecipeCocktailName from "../Fn/SearchRecipe_Cocktail";
+import { atom, useRecoilState } from "recoil";
+import { Recipes } from "../atom";
 
-const RecipeSearch = () => {
+interface Props {
+    is_update: boolean,
+}
+
+const RecipeSearch = (p:Props) => {
     let [getkeyword, setkeyword] = useState<string[]>([]);
     let [getautoword, setautoword] = useState<string[]>([]);
     let [getcategory, setcategory] = useState<string>("ingredient");
     let [gettextvalue,settextvalue] = useState<string>("");
-    let [getrecipes, setrecipes] = useState<Promise<Recipe[]> | Recipe[]>(recipeLoad());
+    let [getrecipes, setrecipes] = useRecoilState<Recipe[]>(Recipes);
+    useEffect(
+        () => {
+            if(!p.is_update){
+                recipeLoad().then(
+                    res =>
+                    setrecipes(res)
+                );
+            }
+        }, [p.is_update, setrecipes]
+    );
+
+
     return (
         <SearchBar>
             <header id="RecipeLogo">
