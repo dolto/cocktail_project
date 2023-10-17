@@ -7,7 +7,7 @@ import searchRecipeKeyword from "../Fn/SearchRecipe_Keyword";
 import { Recipe } from "../Fn/Interface/Recipe";
 import recipeLoad from "../Fn/RecipeLoad";
 import searchRecipeCocktailName from "../Fn/SearchRecipe_Cocktail";
-import { atom, useRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { Recipes } from "../atom";
 
 interface Props {

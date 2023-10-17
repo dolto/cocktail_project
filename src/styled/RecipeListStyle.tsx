@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
 const RecipeListStyle = styled.form`
+  @keyframes identifier {
+    0% {
+      opacity: 0.05;
+      transform: translate(0, 2rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0rem);
+    }
+  }
   .page-container {
     padding-left: 90px;
     padding-right: 88.24px;

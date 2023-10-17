@@ -46,7 +46,7 @@ const AboutUs = () => {
 
   return (
     <AboutUsPage>
-        <section className="section1">
+        <section className="section1 show">
           <article className="imgcontainer">
             <img className="img1" src={img1} alt="About Us" style={imgStyle} />
           </article>
