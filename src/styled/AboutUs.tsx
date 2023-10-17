@@ -19,6 +19,7 @@ section{
 .section1 p {
   display: flex;
   position: absolute;
+  line-height: 70px;
   top: 20%;
   left: 20%;
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
@@ -26,7 +27,7 @@ section{
 }
 .section1 h1 {
   position: absolute;
-  top: 55%;
+  top: 60%;
   left: 20%;
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   font-size: 6rem;
@@ -101,7 +102,7 @@ section{
 }
 .section6 h1 {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
