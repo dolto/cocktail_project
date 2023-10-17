@@ -6,7 +6,7 @@ interface ClassLocation extends LocationInfo{
     // Address:string,
     // Infomation:string,
     // Etc: string
-    Image:string,
+    // Image: string,
     Shop:string,
     Subtitle: string,
     Schedule: string,

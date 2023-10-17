@@ -6,7 +6,12 @@ interface StoreLocation extends LocationInfo{
     // Address:string,
     // Infomation:string,
     // Etc: string
-    info: string
+    // Image: string,
+    Name: string,
+    Cetegory: string,
+    Infomation: string,
+    Contact: string,
+    Hour: string
 };
 
 export default StoreLocation;

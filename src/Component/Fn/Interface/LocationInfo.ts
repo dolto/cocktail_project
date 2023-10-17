@@ -3,6 +3,7 @@ interface LocationInfo {
     Address_category: string,
     Address:string,
     Infomation:string,
+    Image: string,
     Etc: string
 }
 
