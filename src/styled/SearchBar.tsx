@@ -2,14 +2,14 @@ import styled from "styled-components";
 
 const SearchBar = styled.form`
 
-  header{
+header{
     text-align: center;
     font-family: "Sinoreta_PERSONAL_USE_ONLY";
     color: white;
     font-size: 10rem;
+    letter-spacing: 10px;
     grid-column-start: 1;
     grid-column-end: 4;
-    margin-top: 2rem;
   }
   .keyword {
     background-color: #D9D9D9;
@@ -29,12 +29,12 @@ const SearchBar = styled.form`
   #format{
     position: relative;
     background-color: white;
-    width: calc(100% - 10rem);
+    width: calc(100% - 20rem);
     margin: auto;
     display: grid;
     grid-gap: 0.5rem;
     grid-template-columns: 0.5fr 2fr 0.5fr;
-    min-height: 67px;
+    min-height: 60px;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
