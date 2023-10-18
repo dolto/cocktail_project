@@ -19,7 +19,7 @@ const RecipeListStyle = styled.form`
   .recipe-grid {
     margin-top: 50px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4열 */
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); // 유연한 그리드 설정
     grid-gap: 64px;
     grid-column-gap: 12.28px;
     justify-items: center;
@@ -36,16 +36,23 @@ const RecipeListStyle = styled.form`
   .recipe-card img {
     width: calc(100%);
     height: calc(100% - 6rem);
-    object-fit: cover;
+  }
+
+  .recipe-card span {
+    color: #828282;
+    font-size: 16px;
+    margin-top: 10px; 
   }
   .recipe-card h3{
     color: white;
     font-size: 24px;
-    margin-top: 10px; 
   }
-  .recipe-card span {
+
+  .recipe-card p {
     color: #828282;
     font-size: 16px;
+    margin-top: 10px; 
   }
+
 `;
 export default RecipeListStyle;

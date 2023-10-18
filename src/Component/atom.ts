@@ -6,4 +6,4 @@ const Recipes = atom<Recipe[]>({
     default: []
 });
 
-export {Recipes}
+export { Recipes };

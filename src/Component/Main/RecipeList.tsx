@@ -12,7 +12,7 @@ const RecipeList = () => {
       <section className="page-container">
         <nav className="recipe-grid">
           {getrecipes.map((recipe, i) => (
-            <Link to={`/Recipe/Info?id=${recipe.ID}`} key={recipe.ID} className="recipe-card" style={
+            <Link to={`/Recipe/Info/${recipe.ID}`} key={recipe.ID} className="recipe-card" style={
               {
                 transform: "translate(0, 2rem)",
                 opacity: 0.05,
@@ -21,8 +21,9 @@ const RecipeList = () => {
               }
             }>
               <img src={recipe.Image} alt={recipe.Name} />
-              <h3>{recipe.Name}</h3>
-              <span>{recipe.Garnish}</span>
+              <span>{recipe.Name}</span>
+              <h3>{recipe.Kor_name}</h3>
+              <p>{recipe.Taste}</p>
             </Link>
           ))}
         </nav>
