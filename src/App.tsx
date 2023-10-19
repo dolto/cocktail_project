@@ -50,9 +50,8 @@ function App() {
             <RecipeList ></RecipeList>
           </>
         }></Route>
-        <Route path='/Recipe/Info' element={
+        <Route path='/Recipe/Info/:id' element={
           <>
-            <RecipeSearch is_update={false}/>
             <RecipeInfo></RecipeInfo>
           </>
         }></Route>
