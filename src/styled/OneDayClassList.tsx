@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
 const OnedayClassListPage = styled.div`
+  @keyframes identifier {
+    0% {
+      opacity: 0.05;
+      transform: translate(0, 2rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0rem);
+    }
+  }
   .page-container {
     padding: 20px;
     padding-left: 10rem;
@@ -11,6 +21,10 @@ const OnedayClassListPage = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+  }
+
+  .card{
+
   }
 
   .class-card {
