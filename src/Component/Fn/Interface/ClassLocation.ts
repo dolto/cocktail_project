@@ -1,7 +1,7 @@
 import LocationInfo from "./LocationInfo";
 
 interface ClassLocation extends LocationInfo{
-    // ID: string,
+    //ID: string,
     // Address_category: string,
     // Address:string,
     // Infomation:string,
