@@ -6,13 +6,13 @@ const RecipeInfoStyle = styled.div`
     margin: 16px;
     margin-left: 75px;
     margin-right: 75px;
+    flex-direction: row;
   }
 
   .left-section {
     flex: 1;
     position: sticky;
     top: 0;
-    margin-right: 101px;
   }
 
   .image-container {
@@ -22,8 +22,11 @@ const RecipeInfoStyle = styled.div`
   }
 
   .image-container img {
+    position: absolute;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
   }
 
   .overlay {
@@ -74,7 +77,7 @@ const RecipeInfoStyle = styled.div`
 
   .right-section {
     flex: 1;
-    overflow-y: auto;
+    overflow-x: auto;
     max-height: 100vh;
     color: white;
   }
