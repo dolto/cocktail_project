@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
 const OnedayClassListPage = styled.div`
+header{
+    text-align: center;
+    font-family: "Sinoreta_PERSONAL_USE_ONLY";
+    color: white;
+    font-size: 10rem;
+    letter-spacing: 10px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
   @keyframes identifier {
     0% {
       opacity: 0.05;
@@ -13,6 +22,7 @@ const OnedayClassListPage = styled.div`
   }
   .page-container {
     padding: 20px;
+    padding-top: 50px;
     padding-left: 10rem;
     padding-right: 10rem;
   }
@@ -29,15 +39,14 @@ const OnedayClassListPage = styled.div`
 
   .class-card {
     flex-direction: column;
-    height: 600px;
+    height: 500px;
     padding: 20px;
-    border: 1px solid #3e3e3e;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     img {
       width: 100%; /* 이미지 너비를 100%로 설정하여 부모 요소의 너비에 맞게 크기 조정 */
-      height: 400px;
+      height: 300px;
       object-fit: cover; /* 이미지를 가득 채우도록 설정 */
       object-position: center center; /* 이미지의 가로와 세로 중앙에 위치하도록 설정 */
     }
@@ -47,6 +56,7 @@ const OnedayClassListPage = styled.div`
       font-size: 1.5rem;
       margin: 0;
       padding-top: 1rem;
+      padding-bottom: 1rem;
     }
 
     p {

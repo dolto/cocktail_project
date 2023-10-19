@@ -71,7 +71,6 @@ function App() {
         }></Route>
         <Route path='/OneDayClass/Info/:id' element={
           <>
-          <LocationSearch p={"class"}/>
           <OneDayClassInfo/>
           </>
         }></Route>
