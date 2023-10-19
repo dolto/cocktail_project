@@ -15,11 +15,13 @@ const OneDayClassList: React.FC = () => {
                 <div className="class-grid">
                     {getclasslocations.map((classLocation, index) => (
                         <div key={index} className="class-card">
-                            <Link to={`/details/${index}`}> {/* 이 부분이 추가된 부분 */}
+                            <Link to={`/OneDayClass/Info/${index}`}> {/* 이 부분이 추가된 부분 */}
                                 <img src={classLocation.Image} alt={classLocation.Subtitle} />
                                 <h2>{classLocation.Subtitle}</h2>
                                 <p>매장명: {classLocation.Shop}</p>
                                 <p>가격: {classLocation.Price}</p>
+                                <p>매장명: {classLocation.Shop}</p>
+                                <p>아이디: {classLocation.ID}</p>
                             </Link>
                         </div>
                     ))}
