@@ -37,7 +37,7 @@ const OnedayClassListPage = styled.div`
 
     img {
       width: 100%; /* 이미지 너비를 100%로 설정하여 부모 요소의 너비에 맞게 크기 조정 */
-      height: 70%;
+      height: 400px;
       object-fit: cover; /* 이미지를 가득 채우도록 설정 */
       object-position: center center; /* 이미지의 가로와 세로 중앙에 위치하도록 설정 */
     }

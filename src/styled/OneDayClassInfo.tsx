@@ -16,7 +16,6 @@ const OnedayClassInfoPage = styled.div`
     background-color: #252525;
     padding: 80px;
     padding-top: 60px;
-    border-radius: 2rem;
   }
 
   h2 {
@@ -34,22 +33,28 @@ const OnedayClassInfoPage = styled.div`
     cursor: pointer;
     border-radius: 30px;
     border-color: transparent;
-    transition: background-color 0.
+    border: 1.5px solid white;
+    transition: background-color 0.3s ease;
+  }
+  button:hover{
+    background-color: #a4a4a4;
   }
   img {
     width: 100%; /* 이미지 너비를 100%로 설정하여 부모 요소의 너비에 맞게 크기 조정 */
-    height: 60%;
+    height: 400px;
     object-fit: cover; /* 이미지를 가득 채우도록 설정 */
     object-position: center center; /* 이미지의 가로와 세로 중앙에 위치하도록 설정 */
     margin-bottom: 2rem;
   }
   p {
     color: white;
+    font-size: 1rem;
   }
+  
   .text-container{
     margin-top: 2rem;
     h2{
-        padding: 2rem;
+        padding-top: 2rem;
         font-size: 2rem;
         padding-bottom: 2rem;
     }
