@@ -6,6 +6,8 @@ import oneDayClassLoad from "../Fn/OneDayClassLoad";
 import storeLoad from "../Fn/StoreLoad";
 import searchLocationOneDayClass from "../Fn/SearchLocation_OneDayClass";
 import searchLocationStore from "../Fn/SearchLocation_Store";
+import { useRecoilState } from "recoil";
+import { Classs, Stores } from "../atom";
 
 interface Props {
     p: "store"|"class"
@@ -15,10 +17,20 @@ const LocationSearch = (props: Props) => {
     let [getautoword, setautoword] = useState<string[]>([]);
     let [getcategory, setcategory] = useState<string>("all");
     let [gettextvalue,settextvalue] = useState<string>("");
-    let [getlocations, setlocations] = 
-        useState<Promise<ClassLocation[]> | ClassLocation[] | Promise<StoreLocation[]> | StoreLocation[]>(
-            props.p === "store"? storeLoad():oneDayClassLoad()
-        );
+    let [getstorelocations, setstorelocations] = useRecoilState<StoreLocation[]>(Stores);
+    let [getclasslocations, setclasslocations] = useRecoilState<ClassLocation[]>(Classs);
+
+    useEffect(
+        () => {
+            storeLoad().then(
+                res =>
+                setstorelocations(res)
+            );
+            oneDayClassLoad().then(
+                res => setclasslocations(res)
+            );
+        }, [setclasslocations, setstorelocations]
+    );
     return (
         <SearchBar>
             <section id="format">
@@ -49,15 +61,15 @@ const LocationSearch = (props: Props) => {
                     onClick={async (e)=>{
                         e.preventDefault();
                         if(props.p === "class"){
-                            const location:Promise<ClassLocation[]> | ClassLocation[] = await (getlocations as Promise<ClassLocation[]>);
+                            const location = getclasslocations;
                             const local = searchLocationOneDayClass(getcategory,gettextvalue,location);
-                            setlocations(local);
+                            setclasslocations(local);
                             console.log(local);
                         }
                         else{
-                            const location:Promise<StoreLocation[]> | StoreLocation[] = await (getlocations as Promise<StoreLocation[]>);
+                            const location = getstorelocations;
                             const local = searchLocationStore(getcategory,gettextvalue,location);
-                            setlocations(local);
+                            setstorelocations(local);
                             console.log(local);
                         }
                     }}/>

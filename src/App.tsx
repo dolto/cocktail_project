@@ -22,6 +22,8 @@ import RecipeSearch from './Component/Header/RecipeSearch';
 import LocationSearch from './Component/Header/LocationSearch';
 import oneDayClassLoad from './Component/Fn/OneDayClassLoad';
 import { RecoilRoot } from 'recoil';
+import StoreLoad from './Component/Fn/StoreLoad';
+import searchLocationStore from './Component/Fn/SearchLocation_Store';
 
 function App() {
   // recipeLoad().then(
@@ -37,6 +39,11 @@ function App() {
   // oneDayClassLoad().then((data)=>{
   //   console.log(data);
   // }) //원데이 클래스 로드 잘 되는가
+  StoreLoad().then(
+    (res) => {
+      console.log(searchLocationStore("익산","",res));
+    }
+  )
   return (
     <AppPage>
       <HeadMenu></HeadMenu>

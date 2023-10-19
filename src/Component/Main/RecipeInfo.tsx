@@ -7,8 +7,8 @@ import { Recipes } from "../atom";
 
 const RecipeInfo: React.FC = () => {
   const { id } = useParams();
-  const [getrecipes] = useRecoilState<Recipe[]>(Recipes);
-  const selectedRecipe = getrecipes.find((recipe) => recipe.ID === id);
+  const [getrecipes] = useRecoilState<[Recipe[],Recipe[]]>(Recipes);
+  const selectedRecipe = getrecipes[0].concat(getrecipes[1]).find((recipe) => recipe.ID === id);
 
   return (
     <RecipeInfoStyle>

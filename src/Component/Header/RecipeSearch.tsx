@@ -19,13 +19,13 @@ const RecipeSearch = (p:Props) => {
     let [getautoword, setautoword] = useState<string[]>([]);
     let [getcategory, setcategory] = useState<string>("ingredient");
     let [gettextvalue,settextvalue] = useState<string>("");
-    let [getrecipes, setrecipes] = useRecoilState<Recipe[]>(Recipes);
+    let [getrecipes, setrecipes] = useRecoilState<[Recipe[],Recipe[]]>(Recipes);
     useEffect(
         () => {
             if(!p.is_update){
                 recipeLoad().then(
                     res =>
-                    setrecipes(res)
+                    setrecipes([res,[]])
                 );
             }
         }, [p.is_update, setrecipes]
@@ -77,23 +77,14 @@ const RecipeSearch = (p:Props) => {
                             e.preventDefault();
                             if(getcategory === "name"){
                                 const recipes = await getrecipes;
-                                const result = searchRecipeCocktailName(recipes, gettextvalue);
+                                const result = searchRecipeCocktailName(recipes[0].concat(recipes[1]), gettextvalue);
                                 console.log(result);
-                                setrecipes(result);
+                                setrecipes([result, []]);
                             }
                             else{
                                 const recipes = await getrecipes;
-                                const result = searchRecipeKeyword(recipes, getkeyword);
-                                let _recipes:Recipe[] = [];
-                                result[0].forEach((r) => {
-                                    _recipes.push(r);
-                                });
-                                result[1].forEach((r) => {
-                                    _recipes.push(r);
-                                })
-                                //console.log(result);
-                                console.log(_recipes);
-                                setrecipes(_recipes);
+                                const result = searchRecipeKeyword(recipes[0].concat(recipes[1]), getkeyword);
+                                setrecipes(result);
                             }
                         }
                     }/>
@@ -108,11 +99,11 @@ const RecipeSearch = (p:Props) => {
                                     let is_ok = true;
                                     if (getcategory === "name"){
                                         const recipes = await getrecipes;
-                                        const result = searchRecipeCocktailName(recipes, s);
+                                        const result = searchRecipeCocktailName(recipes[0].concat(recipes[1]), s);
                                         setautoword([]);
                                         settextvalue("");
                                         console.log(result);
-                                        setrecipes(result);
+                                        setrecipes([result,[]]);
                                         return;
                                     }
                                     getkeyword.forEach((k)=>{

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const SearchBar = styled.form`
-
+#autoword{
+  z-index: 1;
+}
 header{
     text-align: center;
     font-family: "Sinoreta_PERSONAL_USE_ONLY";

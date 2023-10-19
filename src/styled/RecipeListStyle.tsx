@@ -15,6 +15,18 @@ const RecipeListStyle = styled.form`
     padding-left: 90px;
     padding-right: 88.24px;
   }
+  .oneMoreNeed{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 1rem;
+  }
+  .oneMoreNeed > hr{
+    width: 100%;
+  }
+  .oneMoreNeed > p{
+    color: white;
+    text-align: center;
+  }
 
   .recipe-grid {
     margin-top: 50px;
