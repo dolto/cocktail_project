@@ -69,7 +69,7 @@ function App() {
           <OneDayClassList></OneDayClassList>
           </>
         }></Route>
-        <Route path='/OneDayClass/Info/:index' element={
+        <Route path='/OneDayClass/Info/:id' element={
           <>
           <LocationSearch p={"class"}/>
           <OneDayClassInfo/>

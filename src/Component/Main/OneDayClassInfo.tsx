@@ -3,29 +3,35 @@ import { useParams } from "react-router-dom";
 import OneDayClassInfoPage from "../../styled/OneDayClassInfo";
 import ClassLocation from "../Fn/Interface/ClassLocation";
 import OneDayClassLoad from "../Fn/OneDayClassLoad";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { Classs } from "../atom";
 
 const OneDayClassInfo: React.FC = () => {
-  const index = useParams()?.index as string; // Type assertion
+//   const index = useParams()?.index as string; // Type assertion
 
-  const [classLocation, setClassLocation] = useState<ClassLocation | null>(
-    null
-  );
-  useEffect(() => {
+//   const [classLocation, setClassLocation] = useState<ClassLocation | null>(
+//     null
+//   );
+const id = useParams()?.id as string; // 타입 어설션
+const [classLocations, setClassLocations] = useRecoilState(Classs);
+
+useEffect(() => {
     const fetchData = async () => {
       try {
-        const classData = await OneDayClassLoad();
-        const selectedClass = classData[parseInt(index)];
-        setClassLocation(selectedClass);
+        // 클래스 데이터가 사용 가능하지 않은 경우에만 클래스 데이터를 가져옵니다.
+        if (classLocations.length === 0) {
+          const loadedClassLocations = await OneDayClassLoad();
+          setClassLocations(loadedClassLocations);
+        }
       } catch (error) {
-        console.error(
-          "원데이 클래스 데이터를 불러오는 중 에러가 발생했습니다.",
-          error
-        );
+        console.error("클래스 데이터를 불러오는 중 오류 발생:", error);
       }
     };
-    fetchData();
-  }, [index]);
 
+    fetchData();
+  }, [classLocations, setClassLocations]);
+  const classLocation = classLocations.find((location) => location.ID === id);
+  
   return (
     <OneDayClassInfoPage>
       {classLocation && (

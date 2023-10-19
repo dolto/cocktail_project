@@ -7,15 +7,16 @@ import { useRecoilState } from "recoil";
 import { Classs } from "../atom";
 
 const OneDayClassList: React.FC = () => {
-    let [getclasslocations, setclasslocations] = useRecoilState<ClassLocation[]>(Classs);
+    //let [getclasslocations, setclasslocations] = useRecoilState<ClassLocation[]>(Classs);
+    const [classLocations, setClassLocations] = useRecoilState(Classs);
 
     return (
         <OnedayClassListPage>
             <div className="page-container">
                 <div className="class-grid">
-                    {getclasslocations.map((classLocation, index) => (
+                    {classLocations.map((classLocation, index) => (
                         <div key={index} className="class-card">
-                            <Link to={`/OneDayClass/Info/${index}`} className="card" style={
+                            <Link to={`/OneDayClass/Info/${classLocation.ID}`} className="card" style={
                             {
                               transform: "translate(0, 2rem)",
                               opacity: 0.05,
