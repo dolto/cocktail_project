@@ -8,12 +8,14 @@ grid-template-columns: auto auto auto;
 align-items: center;
 padding: 0 20px;
 height: 6rem;
+width: 100%;
+z-index: 10;
+
+position: sticky;
 
 .container {
-  z-index: 10000000;
   display: flex;
   justify-content: space-between;
-  background-color: #050505;
 }
 
 .content {
@@ -41,9 +43,6 @@ height: 6rem;
 }
 
 nav {
-  z-index: 10000000;
-  background-color: #050505;
-  display: flex;
   color: white;
   font-size: 18px;
   display: flex;
@@ -65,9 +64,6 @@ nav li:last-child {
 }
 
 .login-button {
-  z-index: 10000000;
-  background-color: #050505;
-  display: flex;
   display: flex;
   align-items: center;
 }
