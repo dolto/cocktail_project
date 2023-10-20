@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import OneDayClassInfoPage from "../../styled/OneDayClassInfo";
 import ClassLocation from "../Fn/Interface/ClassLocation";
 import OneDayClassLoad from "../Fn/OneDayClassLoad";
@@ -12,8 +12,9 @@ const OneDayClassInfo: React.FC = () => {
 //   const [classLocation, setClassLocation] = useState<ClassLocation | null>(
 //     null
 //   );
-const id = useParams()?.id as string; // 타입 어설션
 const [classLocations, setClassLocations] = useRecoilState(Classs);
+const [getData, setData] = useSearchParams();
+const id = getData.get('id');
 
 useEffect(() => {
     const fetchData = async () => {

@@ -1,14 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import RecipeInfoStyle from "../../styled/RecipeInfoStyle";
-import { Recipe, Ingredients } from "../Fn/Interface/Recipe";
+import { Recipe } from "../Fn/Interface/Recipe";
 import { useRecoilState } from "recoil";
 import { Recipes } from "../atom";
 
-const RecipeInfo: React.FC = () => {
-  const { id } = useParams();
+const RecipeInfo = () => {
+  const [getData, setData] = useSearchParams();
   const [getrecipes] = useRecoilState<[Recipe[],Recipe[]]>(Recipes);
-  const selectedRecipe = getrecipes[0].concat(getrecipes[1]).find((recipe) => recipe.ID === id);
+  const selectedRecipe = getrecipes[0].concat(getrecipes[1]).find((recipe) => recipe.ID === getData.get('id'));
 
   return (
     <RecipeInfoStyle>
@@ -45,6 +45,7 @@ const RecipeInfo: React.FC = () => {
                   {selectedRecipe.Ingredients.map((ingredient, index) => (
                     <li key={index}>
                       {ingredient.Volume} {ingredient.Name}
+                      <img src={`https://raw.githubusercontent.com/PowerGanjiHongin/IBA_Cocktail_recipe_API/main/Alcohol/${ingredient.Name}.jpg`} alt={ingredient.Name}/>
                       {ingredient.Optional ? " (Optional)" : ""}
                     </li>
                   ))}
