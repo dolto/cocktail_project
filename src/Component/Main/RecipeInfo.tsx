@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import RecipeInfoStyle from "../../styled/RecipeInfoStyle";
 import { Recipe } from "../Fn/Interface/Recipe";
 import { useRecoilState } from "recoil";
 import { Recipes } from "../atom";
+import recipeLoad from "../Fn/RecipeLoad";
 
 const RecipeInfo = () => {
   const [getData, setData] = useSearchParams();
-  const [getrecipes] = useRecoilState<[Recipe[],Recipe[]]>(Recipes);
-  const selectedRecipe = getrecipes[0].concat(getrecipes[1]).find((recipe) => recipe.ID === getData.get('id'));
+  let [selectedRecipe, setSelectedRecipe] = useState<Recipe>();
+
+  useEffect(() => {
+    const id = getData.get('id');
+    recipeLoad().then(
+      (res)=>{
+        const result = res.find(
+          recipe => recipe.ID === id
+        );
+        setSelectedRecipe(result);
+      }
+    );
+  }, [getData]);
 
   return (
     <RecipeInfoStyle>
@@ -43,10 +55,13 @@ const RecipeInfo = () => {
                 <h2>재료</h2>
                 <ul>
                   {selectedRecipe.Ingredients.map((ingredient, index) => (
-                    <li key={index}>
-                      {ingredient.Volume} {ingredient.Name}
-                      <img src={`https://raw.githubusercontent.com/PowerGanjiHongin/IBA_Cocktail_recipe_API/main/Alcohol/${ingredient.Name}.jpg`} alt={ingredient.Name}/>
-                      {ingredient.Optional ? " (Optional)" : ""}
+                    <li key={index} className="ingredient_list">
+                      <img src={`https://raw.githubusercontent.com/PowerGanjiHongin/IBA_Cocktail_recipe_API/main/Alcohol/${ingredient.Name}.jpg`} alt={ingredient.Name} className="ingredient_img"/>
+                      <div className="ingredients_info">
+                        <p>{ingredient.Name}</p>
+                        <p>{ingredient.Volume} </p> 
+                        {ingredient.Optional ? <p>(Optional)</p> : <></>}
+                      </div>
                     </li>
                   ))}
                 </ul>
