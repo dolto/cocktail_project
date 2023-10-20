@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 const SearchBar = styled.form`
+@keyframes autowordselected {
+  0% {
+    background-color: #D9D9D9;
+  } 
+  100%{
+    background-color: #737579;
+  }
+}
 #autoword{
   z-index: 1;
 }
@@ -92,10 +100,10 @@ header{
   .nav{
     padding: 0.5rem;
     transition: 0.3s;
-  }
-  .nav:hover{
-    background-color: #737579;
     user-select: none;
+  }
+  .hover {
+    animation: autowordselected 0.4s forwards;
   }
   .lol{
     color: blue;
