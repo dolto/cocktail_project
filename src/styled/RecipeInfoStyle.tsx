@@ -92,13 +92,13 @@ const RecipeInfoStyle = styled.div`
   }
 
   #header span {
-    font-size: 30px;
+    font-size: 50px;
     margin: 0;
     font-family: "Sinoreta_PERSONAL_USE_ONLY";
   }
 
   #header h2 {
-    font-size: 50px;
+    font-size: 30px;
     margin: 8px 0;
   }
 
