@@ -33,6 +33,9 @@ const LocationSearch = (props: Props) => {
     );
     return (
         <SearchBar>
+            <header id="RecipeLogo">
+                {props.p === "store"? "StoreList":"OneDayClass"}
+            </header>
             <section id="format">
                 <select id="category" 
                 onChange={(e)=>{
