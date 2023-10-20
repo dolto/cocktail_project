@@ -6,6 +6,12 @@ import img4 from "../../res/img/Aboutus-4.jpeg";
 import img5 from "../../res/img/Aboutus-5.jpeg";
 import img6 from "../../res/img/Aboutus-6.jpeg";
 import AboutUsPage from "../../styled/AboutUs";
+import {SectionsContainer, Section} from 'react-fullpage';
+
+let options = {
+  anchors: ['sectionOne', 'sectionTwo', 'sectionThree', 'sectionFour', 'sectionFive', 'sectionSix'],
+};
+
 
 const AboutUs = () => {
   const [windowHeight, setWindowHeight] = useState(window.innerHeight);
@@ -15,19 +21,20 @@ const AboutUs = () => {
       setWindowHeight(window.innerHeight);
     };
     const handleScroll = () => {
-      const sectionList:NodeListOf<HTMLElement> = document.querySelectorAll('section');
+      const sectionList: NodeListOf<HTMLElement> =
+        document.querySelectorAll("section");
       sectionList.forEach((node) => {
-        if(window.innerHeight > (node.getBoundingClientRect().top)){
+        if (window.innerHeight > node.getBoundingClientRect().top) {
           //console.log("is show");
           //console.log(node);
           node.classList.add("show");
-        }else{
+        } else {
           //console.log("is not show");
           //console.log(node);
           node.classList.remove("show");
         }
       });
-    }
+    };
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("scroll", handleScroll);
@@ -38,15 +45,14 @@ const AboutUs = () => {
     };
   }, []);
 
-
-
   const imgStyle = {
     height: windowHeight + "px", // 이미지 높이를 브라우저 높이에 맞게 설정
   };
 
   return (
     <AboutUsPage>
-        <section className="section1 show">
+      <SectionsContainer {...options}>
+        <Section className="section1 show">
           <article className="imgcontainer">
             <img className="img1" src={img1} alt="About Us" style={imgStyle} />
           </article>
@@ -58,8 +64,8 @@ const AboutUs = () => {
             📝 원데이 클래스까지
           </p>
           <h1>한번에 만나보세요!</h1>
-        </section>
-        <section className="section2">
+        </Section>
+        <Section className="section2">
           <article className="imgcontainer">
             <img className="img2" src={img2} alt="About Us" style={imgStyle} />
           </article>
@@ -69,8 +75,8 @@ const AboutUs = () => {
             <br />
             특별한 날을 완성시키는 방법
           </p>
-        </section>
-        <section className="section3">
+        </Section>
+        <Section className="section3">
           <article className="imgcontainer">
             <img className="img3" src={img3} alt="About Us" style={imgStyle} />
           </article>
@@ -83,8 +89,8 @@ const AboutUs = () => {
             <br />
             떠나보세요!
           </p>
-        </section>
-        <section className="section4">
+        </Section>
+        <Section className="section4">
           <article className="imgcontainer">
             <img className="img4" src={img4} alt="About Us" style={imgStyle} />
           </article>
@@ -95,8 +101,8 @@ const AboutUs = () => {
             <br />
             Cocktail Sense에서!
           </p>
-        </section>
-        <section className="section5">
+        </Section>
+        <Section className="section5">
           <article className="imgcontainer">
             <img className="img5" src={img5} alt="About Us" style={imgStyle} />
           </article>
@@ -109,14 +115,15 @@ const AboutUs = () => {
             이제는 검색, 신청, 결제까지 한번에 하세요
             <br />
           </p>
-        </section>
-        <section className="section6">
+        </Section>
+        <Section className="section6">
           <article className="imgcontainer">
             <img className="img6" src={img6} alt="About Us" style={imgStyle} />
           </article>
           <p>Anyone can easily</p>
           <h1>Cocktail sense</h1>
-        </section>
+        </Section>
+      </SectionsContainer>
     </AboutUsPage>
   );
 };
