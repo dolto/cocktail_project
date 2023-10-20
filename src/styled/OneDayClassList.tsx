@@ -57,17 +57,20 @@ header{
       margin: 0;
       padding-top: 1rem;
       padding-bottom: 1rem;
+      font-family: "AppleSDGothicNeoSB";
     }
 
     p {
       color: white;
       margin: 10px 0 0; /* 하단에만 margin을 추가하여 p 태그가 하단에 붙어있게 됩니다. */
+      font-family: "AppleSDGothicNeoSB";
     }
 
     a {
       text-decoration: none;
       color: black;
       font-weight: bold;
+      font-family: "AppleSDGothicNeoSB";
     }
   }
 `;
