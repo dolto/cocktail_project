@@ -17,7 +17,7 @@ const RecipeList = () => {
                 transform: "translate(0, 2rem)",
                 opacity: 0.05,
                 animation: 'identifier 0.7s forwards',
-                animationDelay: `${(i + 1) * 0.2}s`
+                animationDelay: `${Math.min(i + 1, 20) * 0.05}s`
               }
             }>
               <img src={recipe.Image} alt={recipe.Name} />
@@ -42,8 +42,8 @@ const RecipeList = () => {
               {
                 transform: "translate(0, 2rem)",
                 opacity: 0.05,
-                animation: 'identifier 0.7s forwards',
-                animationDelay: `${(i + 1) * 0.2}s`
+                animation: 'identifier 0.5s forwards',
+                animationDelay: `${Math.min(i + 1, 20) * 0.05}s`
               }
             }>
               <img src={recipe.Image} alt={recipe.Name} />
