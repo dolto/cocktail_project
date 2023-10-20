@@ -15,7 +15,7 @@ const OneDayClassList: React.FC = () => {
           {classLocations.map((classLocation, index) => (
             <div key={index} className="class-card">
               <Link
-                to={`/OneDayClass/Info/${classLocation.ID}`}
+                to={`/OneDayClass/Info?id=${classLocation.ID}`}
                 className="card"
                 style={{
                   transform: "translate(0, 2rem)",

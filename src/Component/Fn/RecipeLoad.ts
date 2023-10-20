@@ -22,7 +22,7 @@ const recipeLoad = async (): Promise<Recipe[]> => {
     }
     // console.log("레시피 데이터는 ")
     // console.log(result);
-    console.log("Loaded Recipes:", result); // 레시피 데이터 확인용
+    //console.log("Loaded Recipes:", result); // 레시피 데이터 확인용
     return result;
 };
 

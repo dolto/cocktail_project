@@ -1,6 +1,21 @@
 import styled from "styled-components";
 
 const RecipeInfoStyle = styled.div`
+  .ingredient_img {
+    width: 90px;
+    height: 86px;
+    object-fit: contain;
+    background-color: white;
+    margin-bottom: 0.2rem;
+    border-radius: 8px;
+  }
+  .ingredient_list{
+    display: flex;
+    align-items: center;
+  }
+  .ingredients_info{
+    margin: 0.5rem;
+  }
   .recipe-container {
     display: flex;
     margin: 16px;

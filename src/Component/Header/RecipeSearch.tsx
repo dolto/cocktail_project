@@ -14,12 +14,26 @@ interface Props {
     is_update: boolean,
 }
 
+
 const RecipeSearch = (p:Props) => {
     let [getkeyword, setkeyword] = useState<string[]>([]);
     let [getautoword, setautoword] = useState<string[]>([]);
     let [getcategory, setcategory] = useState<string>("ingredient");
     let [gettextvalue,settextvalue] = useState<string>("");
     let [getrecipes, setrecipes] = useRecoilState<[Recipe[],Recipe[]]>(Recipes);
+    let [getcount, setcount] = useState<number>(-1);
+    let [getsize, setsize] = useState<number>(-1);
+
+    const autowordTab = (e: React.KeyboardEvent) => {
+        const f = e.currentTarget as HTMLElement;
+        if(e.key === "Tab"){
+            if(getsize > getcount)
+                setcount((count) => count+1);
+            else
+                setcount((count) => -1);
+        }
+    }
+    
     useEffect(
         () => {
             if(!p.is_update){
@@ -28,12 +42,13 @@ const RecipeSearch = (p:Props) => {
                     setrecipes([res,[]])
                 );
             }
-        }, [p.is_update, setrecipes]
+            setsize(getautoword.length);
+        }, [getautoword.length, p.is_update, setrecipes]
     );
 
 
     return (
-        <SearchBar>
+        <SearchBar onKeyDown={autowordTab}>
             <header id="RecipeLogo">
                 RECIPE
             </header>
@@ -62,12 +77,14 @@ const RecipeSearch = (p:Props) => {
                     onChange={async (e) => {
                         settextvalue(e.currentTarget.value);
                         setautoword(await inputRecipeKeyword(e.currentTarget.value));
-                    }}/> :
+                    }}
+                    onBlur={(e)=>{e.currentTarget.focus()}}/> :
                     <input type="text" id="input" placeholder="이름을 입력해보세요"
                     onChange={async (e) => {
                         settextvalue(e.currentTarget.value);
                         setautoword(await inputRecipeCocktailName(e.currentTarget.value));
-                    }}/>
+                    }}
+                    onBlur={(e)=>{e.currentTarget.focus()}}/>
                     }
                 </article>
                 <article id="submit_area">
@@ -82,19 +99,51 @@ const RecipeSearch = (p:Props) => {
                                 setrecipes([result, []]);
                             }
                             else{
-                                const recipes = await getrecipes;
-                                const result = searchRecipeKeyword(recipes[0].concat(recipes[1]), getkeyword);
-                                setrecipes(result);
+                                if(getcount === -1){
+                                    const recipes = await getrecipes;
+                                    const result = searchRecipeKeyword(recipes[0].concat(recipes[1]), getkeyword);
+                                    setrecipes(result);
+                                }
+                                else{
+                                    let is_ok = true;
+                                    const autoEle = document.querySelector("#auto"+getcount) as HTMLDivElement;
+                                    const s = autoEle.innerText as string;
+                                    getkeyword.forEach((k)=>{
+                                        if(s === k){
+                                            is_ok = false;
+                                            return false;
+                                        }
+                                    });
+                                    if(is_ok){
+                                        const word = getkeyword;
+                                        word.push(s);
+                                        setkeyword(()=>word);
+                                        const inputEle = document.getElementById("input") as HTMLInputElement;
+                                        inputEle.value = "";
+                                        settextvalue("");
+                                        setautoword([]);
+                                    }
+                                }
                             }
                         }
                     }/>
                 </article>
                 {getautoword.length === 0? <></>:
                     <article id="autoword">
-                        {getautoword.map((s) => {
+                        {getautoword.map((s, i) => {
                             const result = setAutoWordText(s, gettextvalue);
                             return (
-                                <nav key={s} className="nav"
+                                <nav id={`auto${i}`} key={s} className={`nav${getcount === i? " hover":''}`}
+                                onMouseEnter={
+                                    (e) => {
+                                        setcount(i);
+                                    }
+                                }
+                                onMouseLeave={
+                                    (e) => {
+                                        setcount(-1);
+                                    }
+                                }
                                 onClick={async () => {
                                     let is_ok = true;
                                     if (getcategory === "name"){

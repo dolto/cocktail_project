@@ -33,17 +33,19 @@ function App() {
   //   }
   // ); //레시피 로드 잘되는가
   //cocktailNameLoad(); //레시피 이름 로드 잘 되는가
-  //keywordLoad() //레시피의 재료 목록을 로드 잘 하는가.
+  keywordLoad().then((res)=>{
+    console.log(res);
+  }) //레시피의 재료 목록을 로드 잘 하는가.
   //inputRecipeCocktailName('h'); //입력받은 문자열에서 칵테일 자동완성문이 잘 되는가
   //inputRecipeKeyword('h');
   // oneDayClassLoad().then((data)=>{
   //   console.log(data);
   // }) //원데이 클래스 로드 잘 되는가
-  StoreLoad().then(
-    (res) => {
-      console.log(searchLocationStore("익산","",res));
-    }
-  )
+  // StoreLoad().then(
+  //   (res) => {
+  //     console.log(searchLocationStore("익산","",res));
+  //   }
+  // )
   return (
     <AppPage>
       <HeadMenu></HeadMenu>
@@ -57,7 +59,7 @@ function App() {
             <RecipeList ></RecipeList>
           </>
         }></Route>
-        <Route path='/Recipe/Info/:id' element={
+        <Route path='/Recipe/Info' element={
           <>
             <RecipeInfo></RecipeInfo>
           </>
@@ -69,7 +71,7 @@ function App() {
           <OneDayClassList></OneDayClassList>
           </>
         }></Route>
-        <Route path='/OneDayClass/Info/:id' element={
+        <Route path='/OneDayClass/Info' element={
           <>
           <OneDayClassInfo/>
           </>
