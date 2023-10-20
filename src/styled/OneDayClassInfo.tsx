@@ -23,6 +23,7 @@ const OnedayClassInfoPage = styled.div`
     font-size: 2.5rem;
     font-weight: bold;
     padding-bottom: 60px;
+    font-family: "AppleSDGothicNeoSB";
   }
   button{
     width: 100%;
@@ -35,6 +36,7 @@ const OnedayClassInfoPage = styled.div`
     border-color: transparent;
     border: 1.5px solid white;
     transition: background-color 0.3s ease;
+    font-family: "AppleSDGothicNeoSB";
   }
   button:hover{
     background-color: #a4a4a4;
@@ -49,6 +51,7 @@ const OnedayClassInfoPage = styled.div`
   p {
     color: white;
     font-size: 1rem;
+    font-family: "AppleSDGothicNeoSB";
   }
   
   .text-container{
@@ -57,9 +60,11 @@ const OnedayClassInfoPage = styled.div`
         padding-top: 2rem;
         font-size: 2rem;
         padding-bottom: 2rem;
+        font-family: "AppleSDGothicNeoSB";
     }
     p{
         padding: 10px;
+        font-family: "AppleSDGothicNeoSB";
     }
   }
 `;

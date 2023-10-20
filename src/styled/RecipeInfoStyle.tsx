@@ -72,6 +72,7 @@ const RecipeInfoStyle = styled.div`
         text-decoration: none;
         border-bottom: 1px solid transparent;
         transition: background-color 0.3s;
+        font-family: "AppleSDGothicNeoSB";
 
         &:hover {
           background-color: #555;
@@ -104,6 +105,7 @@ const RecipeInfoStyle = styled.div`
     text-align: center;
     color: #ffb2b2;
     margin-bottom: 20px;
+    font-family: "AppleSDGothicNeoSB";
   }
 
   #header span {
@@ -123,6 +125,7 @@ const RecipeInfoStyle = styled.div`
   #garnish,
   #description {
     margin-bottom: 40px;
+    font-family: "AppleSDGothicNeoSB";
   }
 
   #taste h2,

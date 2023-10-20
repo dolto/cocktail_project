@@ -11,6 +11,9 @@ const RecipeListStyle = styled.form`
       transform: translate(0, 0rem);
     }
   }
+  .h3 .p{
+    font-family: "AppleSDGothicNeoSB";
+  }
   .page-container {
     padding-left: 90px;
     padding-right: 88.24px;

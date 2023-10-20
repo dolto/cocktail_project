@@ -24,6 +24,7 @@ section{
   left: 20%;
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   font-size: 3.5rem;
+  font-family: "AppleSDGothicNeoSB";
 }
 .section1 h1 {
   position: absolute;
@@ -31,6 +32,7 @@ section{
   left: 20%;
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   font-size: 6rem;
+  font-family: "AppleSDGothicNeoSB";
 }
 .section2 {
   position: relative;
@@ -44,6 +46,7 @@ section{
   transform: translate(-50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   font-size: 3rem;
+  font-family: "AppleSDGothicNeoSB";
 }
 .section3 {
   position: relative;
@@ -57,6 +60,7 @@ section{
   transform: translate(50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   font-size: 3rem;
+  font-family: "AppleSDGothicNeoSB";
 }
 .section4 {
   position: relative;
@@ -71,6 +75,7 @@ section{
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   text-shadow: 4px 4px 4px black;
   font-size: 3rem;
+  font-family: "AppleSDGothicNeoSB";
 }
 .section5 {
   position: relative;
@@ -85,6 +90,7 @@ section{
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   text-shadow: 4px 4px 4px black;
   font-size: 3rem;
+  font-family: "AppleSDGothicNeoSB";
 }
 .section6 {
   position: relative;
