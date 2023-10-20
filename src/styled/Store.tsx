@@ -81,8 +81,11 @@ const Store = styled.div`
   }
 
   .item-image img {
-    max-width: 100%;
-    height: auto;
+    /* max-width: 100%;
+    height: auto; */
+    width: 225px;
+    height: 170px;
+    object-fit: cover;
   }
 
   .item-info {

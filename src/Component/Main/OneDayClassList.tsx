@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import OnedayClassListPage from "../../styled/OneDayClassList";
-import ClassLocation from "../Fn/Interface/ClassLocation";
-import OneDayClassLoad from "../Fn/OneDayClassLoad";
 import { useRecoilState } from "recoil";
 import { Classs } from "../atom";
 

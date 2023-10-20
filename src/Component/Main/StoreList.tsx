@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
 import logoimg from "../../res/img/Store-1.jpeg";
-import storeLoad from "../Fn/StoreLoad";
 import StoreLocation from "../Fn/Interface/StoreLocation";
 import Store from "../../styled/Store";
+import { useRecoilState } from "recoil";
+import { Stores } from "../atom";
 
 function StoreList() {
-  const [storeData, setStoreData] = useState<StoreLocation[]>([]);
+  let [getstorelocations, setstorelocations] = useRecoilState<StoreLocation[]>(Stores);
 
-  useEffect(() => {
-    storeLoad()
-      .then((data) => {
-        setStoreData(data);
-      })
-      .catch((error) => {
-        console.error("Error loading store data: ", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   storeLoad()
+  //     .then((data) => {
+  //       setStoreData(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error loading store data: ", error);
+  //     });
+  // }, []);
 
   return (
     <Store>
@@ -32,7 +32,7 @@ function StoreList() {
           <article>
             <section id="store">
             <ul>
-                {storeData.map((store, i) => (
+                {getstorelocations.map((store, i) => (
                   <li key={i} className="store-item" style={
                     {
                       transform: "translate(0, 2rem)",
