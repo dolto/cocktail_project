@@ -8,6 +8,10 @@ grid-template-columns: auto auto auto;
 align-items: center;
 padding: 0 20px;
 height: 6rem;
+width: 100%;
+z-index: 10;
+
+position: sticky;
 
 .container {
   display: flex;
