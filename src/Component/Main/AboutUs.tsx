@@ -121,6 +121,7 @@ const AboutUs = () => {
           </article>
           <p>Anyone can easily</p>
           <h1>Cocktail sense</h1>
+          <span>you can make cocktails at home</span>
         </Section>
       </SectionsContainer>
     </AboutUsPage>

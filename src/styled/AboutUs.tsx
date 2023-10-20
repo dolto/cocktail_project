@@ -39,7 +39,7 @@ section{
   text-align: center;
   line-height: 100px;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
@@ -52,7 +52,7 @@ section{
   text-align: right;
   line-height: 100px;
   position: absolute;
-  top: 50%;
+  top: 45%;
   right: 30%;
   transform: translate(50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
@@ -65,7 +65,7 @@ section{
   text-align: center;
   line-height: 100px;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
@@ -79,7 +79,7 @@ section{
   text-align: center;
   line-height: 100px;
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
@@ -93,21 +93,35 @@ section{
   text-align: center;
   line-height: 100px;
   position: absolute;
-  top: 40%;
+  top: 33%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   text-shadow: 2px 4px 2px black;
-  font-size: 2rem;
+  font-size: 4rem;
+  font-family: "Sinoreta_PERSONAL_USE_ONLY";
+}
+.section6 span {
+  text-align: center;
+  line-height: 100px;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
+  text-shadow: 2px 4px 2px black;
+  font-size: 1.5rem;
+  font-family: "Sinoreta_PERSONAL_USE_ONLY";
 }
 .section6 h1 {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white; /* 텍스트의 색상을 조절할 수 있습니다 */
   text-shadow: 4px 4px 2px black;
-  font-size: 6rem;
+  font-size: 8rem;
+  font-family: "Sinoreta_PERSONAL_USE_ONLY";
 }
 
 
