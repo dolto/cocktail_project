@@ -38,7 +38,7 @@ const RecipeList = () => {
         
         <nav className="recipe-grid">
           {getrecipes[1].map((recipe, i) => (
-            <Link to={`/Recipe/Info/${recipe.ID}`} key={recipe.ID} className="recipe-card" style={
+            <Link to={`/Recipe/Info?id=${recipe.ID}`} key={recipe.ID} className="recipe-card" style={
               {
                 transform: "translate(0, 2rem)",
                 opacity: 0.05,

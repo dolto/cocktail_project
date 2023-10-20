@@ -107,7 +107,7 @@ const RecipeSearch = (p:Props) => {
                                 else{
                                     let is_ok = true;
                                     const autoEle = document.querySelector("#auto"+getcount) as HTMLDivElement;
-                                    const s = autoEle.innerText as string;
+                                    const s = autoEle.innerText;
                                     getkeyword.forEach((k)=>{
                                         if(s === k){
                                             is_ok = false;
@@ -122,6 +122,8 @@ const RecipeSearch = (p:Props) => {
                                         inputEle.value = "";
                                         settextvalue("");
                                         setautoword([]);
+                                        setcount(-1);
+                                        setsize(-1);
                                     }
                                 }
                             }
@@ -169,6 +171,8 @@ const RecipeSearch = (p:Props) => {
                                         inputEle.value = "";
                                         settextvalue("");
                                         setautoword([]);
+                                        setcount(-1);
+                                        setsize(-1);
                                     }
                                 }}>
                                     {result}
