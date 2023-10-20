@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
       <section className="footer-container">
         <section className="Info">
           <h1>Cocktail Sense</h1>
-          <span>by 팀이름</span>
+          <span>by 칵테일, 로맨틱, 성공적</span>
         </section>
         <section className="Header-nav">
           <nav>
@@ -47,22 +47,22 @@ const Footer: React.FC = () => {
             <h1>Team’s Pages</h1>
             <ul>
               <li>
-                <a href="/" className="link-style" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/dolto" className="link-style" target="_blank" rel="noopener noreferrer">
                   홍도완
                 </a>
               </li>
               <li>
-                <a href="/" className="link-style" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/PowerGanjiHongin" className="link-style" target="_blank" rel="noopener noreferrer">
                   임홍인
                 </a>
               </li>
               <li>
-                <a href="/" className="link-style" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.notion.so/HelloWorld_EunbiWorld-ac4f8cd123044875aba58469900ec7c3?pvs=4" className="link-style" target="_blank" rel="noopener noreferrer">
                   이은비
                 </a>
               </li>
               <li>
-                <a href="/" className="link-style" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/sehoon0302" className="link-style" target="_blank" rel="noopener noreferrer">
                   유세훈
                 </a>
               </li>
