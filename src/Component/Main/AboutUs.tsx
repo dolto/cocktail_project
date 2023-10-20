@@ -46,8 +46,7 @@ const AboutUs = () => {
   }, []);
 
   const imgStyle = {
-    height: windowHeight + "px", // 이미지 높이를 브라우저 높이에 맞게 설정
-  };
+    height: windowHeight - 6 * parseFloat(getComputedStyle(document.documentElement).fontSize) + "px",  };
 
   return (
     <AboutUsPage>
