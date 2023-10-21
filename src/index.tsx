@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/cocktail_sense'>
       <RecoilRoot>
         <App />
       </RecoilRoot>

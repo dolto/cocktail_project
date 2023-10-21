@@ -42,7 +42,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "./",
+  "homepage": "https://dolto.github.io/cocktail_sense/",
   "devDependencies": {
     "@types/react": "^18.2.28",
     "@types/react-dom": "^18.2.13"
