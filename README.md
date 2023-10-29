@@ -1,5 +1,5 @@
 
-# 칵테일 프로젝트
+# Cocktail Sense 프로젝트
 React + TypeScript 칵테일 레시피 사이트
 
 
