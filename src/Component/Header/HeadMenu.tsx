@@ -27,6 +27,11 @@ const HeadMenu: React.FC = () => {
               </Link>
             </li>
             <li>
+              <Link to="/MyRecipe" className="link-style">
+                MyRecipes
+              </Link>
+            </li>
+            <li>
               <Link to="/Store" className="link-style">
                 Cocktail Bar
               </Link>

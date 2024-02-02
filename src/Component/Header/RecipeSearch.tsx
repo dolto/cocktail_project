@@ -8,7 +8,7 @@ import { Recipe } from "../Fn/Interface/Recipe";
 import recipeLoad from "../Fn/RecipeLoad";
 import searchRecipeCocktailName from "../Fn/SearchRecipe_Cocktail";
 import { useRecoilState } from "recoil";
-import { Recipes } from "../atom";
+import { Recipes, Keyword } from "../atom";
 
 interface Props {
     is_update: boolean,
@@ -16,7 +16,7 @@ interface Props {
 
 
 const RecipeSearch = (p:Props) => {
-    let [getkeyword, setkeyword] = useState<string[]>([]);
+    let [getkeyword, setkeyword] = useRecoilState<string[]>(Keyword);
     let [getautoword, setautoword] = useState<string[]>([]);
     let [getcategory, setcategory] = useState<string>("ingredient");
     let [gettextvalue,settextvalue] = useState<string>("");
@@ -36,10 +36,10 @@ const RecipeSearch = (p:Props) => {
     
     useEffect(
         () => {
-            if(!p.is_update){
+            if(getkeyword.length === 0){
                 recipeLoad().then(
                     res =>
-                    setrecipes([res,[]])
+                    setrecipes([res,[]]) 
                 );
             }
             setsize(getautoword.length);
@@ -102,7 +102,7 @@ const RecipeSearch = (p:Props) => {
                                 if(getcount === -1){
                                     const recipes = await getrecipes;
                                     const result = searchRecipeKeyword(recipes[0].concat(recipes[1]), getkeyword);
-                                    setrecipes(result);
+                                    setrecipes(await result);
                                 }
                                 else{
                                     let is_ok = true;
@@ -115,7 +115,7 @@ const RecipeSearch = (p:Props) => {
                                         }
                                     });
                                     if(is_ok){
-                                        const word = getkeyword;
+                                        const word = [...getkeyword];
                                         word.push(s);
                                         setkeyword(()=>word);
                                         const inputEle = document.getElementById("input") as HTMLInputElement;
@@ -164,7 +164,7 @@ const RecipeSearch = (p:Props) => {
                                         }
                                     });
                                     if(is_ok){
-                                        const word = getkeyword;
+                                        const word = [...getkeyword];
                                         word.push(s);
                                         setkeyword(()=>word);
                                         const inputEle = document.getElementById("input") as HTMLInputElement;

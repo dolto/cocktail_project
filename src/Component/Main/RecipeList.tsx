@@ -30,7 +30,7 @@ const RecipeList = () => {
         {getrecipes[1].length > 0?
               <article className="oneMoreNeed">
                 <hr />
-                <p>재료 하나가 모자란 레시피</p>
+                <p>재료가 모자란 레시피</p>
                 <hr />
               </article>:
               <></>}

@@ -1,10 +1,17 @@
 import {Recipe, Ingredients} from "./Interface/Recipe";
+import recipeLoad from "./RecipeLoad";
 
-const searchRecipeKeyword = (baseList:Recipe[] ,arg:string[]): [Recipe[], Recipe[]] => {
+const searchRecipeKeyword =  async (baseList:Recipe[] ,arg:string[]): Promise<[Recipe[], Recipe[]]> => {
     //TODO: 입력받은 키워드들로, 레시피를 검색하여 반환하는 기능
+    if(arg.length === 0){
+        let result: Recipe[] = await recipeLoad();
+        return [result, []];
+    }
+
     let result: Recipe[] = [];
     let recommend: Recipe[] = [];
     baseList.forEach((recipe) => {
+        const ingredients_count = recipe.Ingredients.length;
         const removed_ingredients = recipe.Ingredients.filter(
             (ingred) => {
                 let res = true;
@@ -22,7 +29,7 @@ const searchRecipeKeyword = (baseList:Recipe[] ,arg:string[]): [Recipe[], Recipe
         if(removed_ingredients.length === 0){
             result.push(recipe);
         }
-        else if(removed_ingredients.length === 1){ //재료 하나가 모자랄 경우 추천으로 넣음
+        else if(removed_ingredients.length < ingredients_count){ //재료가 모자랄 경우 추천으로 넣음
             recommend.push(recipe);
         }
     });

@@ -18,4 +18,9 @@ const Classs = atom<ClassLocation[]>({
     default: []
 });
 
-export { Recipes , Stores, Classs};
+const Keyword = atom<string[]>({
+    key:"Keyword",
+    default:[]
+});
+
+export { Recipes , Stores, Classs, Keyword};

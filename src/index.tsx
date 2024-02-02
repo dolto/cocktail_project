@@ -10,13 +10,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <BrowserRouter basename='/cocktail_sense'>
-      <RecoilRoot>
-        <App />
-      </RecoilRoot>
-    </BrowserRouter>
-  </React.StrictMode>
+
+  <BrowserRouter basename='/cocktail_sense'>
+    <RecoilRoot>
+      <App />
+    </RecoilRoot>
+  </BrowserRouter>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

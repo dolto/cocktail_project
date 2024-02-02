@@ -3,19 +3,23 @@ import styled from "styled-components";
 const HeadMenuPage = styled.header`
 background-color: #050505;
 display: grid;
-grid-template-columns: auto auto auto;
+grid-template-columns: 20rem auto 20rem;
 /* 그리드 레이아웃, 로고, 네비게이션, 로그인 버튼 간격 설정 */
 align-items: center;
-padding: 0 20px;
+//padding: 0 20px;
 height: 6rem;
 width: 100%;
 z-index: 10;
-
 position: sticky;
+
+& > *{
+  margin: auto;
+}
 
 .container {
   display: flex;
   justify-content: space-between;
+  padding-left: 5rem;
 }
 
 .content {
@@ -24,7 +28,6 @@ position: sticky;
   font-family: "Sinoreta_PERSONAL_USE_ONLY";
   font-size: 24px;
   color: white;
-  margin-left: 150px;
 }
 
 .content>img {
@@ -66,6 +69,7 @@ nav li:last-child {
 .login-button {
   display: flex;
   align-items: center;
+  padding-right: 5rem;
 }
 
 .login-button a {

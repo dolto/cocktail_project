@@ -24,6 +24,7 @@ import oneDayClassLoad from './Component/Fn/OneDayClassLoad';
 import { RecoilRoot } from 'recoil';
 import StoreLoad from './Component/Fn/StoreLoad';
 import searchLocationStore from './Component/Fn/SearchLocation_Store';
+import MyRecipe from './Component/Main/MyRecipe';
 
 function App() {
   // recipeLoad().then(
@@ -64,7 +65,11 @@ function App() {
             <RecipeInfo></RecipeInfo>
           </>
         }></Route>
-
+        <Route path='/myRecipe' element={
+          <>
+            <MyRecipe ></MyRecipe>
+          </>
+        }></Route>
         <Route path='/OneDayClass' element={
           <>
           <LocationSearch p={"class"}/>
