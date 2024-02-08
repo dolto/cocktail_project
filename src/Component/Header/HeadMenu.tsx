@@ -1,9 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import logoimg from "../../res/img/ic_cocktail.png";
 import HeadMenuPage from "../../styled/HeadMenu";
+import { useRecoilState } from "recoil";
+import { SessionID } from "../atom";
 
-const HeadMenu: React.FC = () => {
+const HeadMenu= () => {
+  const [getSessionID, setSessionID] = useRecoilState<string|null>(SessionID);
+  
+
   return (
       <HeadMenuPage>
         <div className="container">
@@ -43,14 +47,29 @@ const HeadMenu: React.FC = () => {
             </li>
           </ul>
         </nav>
-        <div className="login-button">
-          <Link to="/login" className="link-style">
-            Login
-          </Link>
-          <Link to="/signup" className="link-style">
-            <button>Sign Up</button>
-          </Link>
-        </div>
+        
+          {
+            getSessionID?(
+              <div className="login-button">
+              <div className="link-style">
+                <button onClick={() => {
+                  setSessionID(null)
+                }}> Log out </button>
+              </div>
+              </div>
+            ):
+            (
+            <div className="login-button">
+              <Link to="/login" className="link-style">
+              Login
+            </Link>
+            <Link to="/signup" className="link-style">
+              <button>Sign Up</button>
+            </Link>
+            </div>)
+          }
+          
+        
         
       </HeadMenuPage>
    

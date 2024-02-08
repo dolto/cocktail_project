@@ -4,12 +4,16 @@ import { Ingredients, Recipe } from "../Fn/Interface/Recipe";
 import setAutoWordText from "../Fn/SetAutoWordText";
 import inputRecipeKeyword from "../Fn/InputRecipe_Keyword copy";
 import CustomIngredients from "./CustomIngredients";
+import { isSuccess } from "../Fn/Interface/isLogin";
 
 
 
 const MyRecipe = () => {
     let [getTheumnale, setThemnale] = useState<string>('');
     let [getIngredients, setIngredients] = useState<Ingredients[]>([]);
+
+    
+
     return(
         <MyRecipePage onSubmit={(e) => {
             e.preventDefault();
@@ -27,6 +31,26 @@ const MyRecipe = () => {
             }
             console.log(new_data);
             // 여기에 데이터베이스에 추가하는 기능
+                fetch('http://localhost:3001/Import_recipe', {
+                  method : "post",
+                  headers : {"Content-type": "application/json",
+                  Accept: "application/json",},
+                  body : JSON.stringify(
+                    new_data
+                  )
+                }).then(res =>{ 
+                  console.log(res.status);  // HTTP 상태 코드를 출력합니다.
+                  console.log(res.statusText);  // HTTP 상태 메시지를 출력합니다.
+                  console.log(res)
+                  return res.json()
+                }).then((result : isSuccess ) => {
+                    console.log(result.isSuccess) 
+                  if(result.isSuccess === "True"){
+
+                  }
+                }).catch(error => {console.log("에러 내용 : " +error)})
+                
+              
         }}>
             <article className="NameSet">
                 <span className="myRecipeName">국문 제목</span>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AppPage from './styled/App'
 import HeadMenu from './Component/Header/HeadMenu';
 import Footer from './Component/Footer/Footer';
@@ -25,6 +25,9 @@ import { RecoilRoot } from 'recoil';
 import StoreLoad from './Component/Fn/StoreLoad';
 import searchLocationStore from './Component/Fn/SearchLocation_Store';
 import MyRecipe from './Component/Main/MyRecipe';
+import Login from './Component/Main/Login';
+import Signup from './Component/Main/Sign_up';
+import { getCookie } from './Component/Fn/Session';
 
 function App() {
   // recipeLoad().then(
@@ -47,6 +50,13 @@ function App() {
   //     console.log(searchLocationStore("익산","",res));
   //   }
   // )
+
+  // 재랜더링 할 때마다 수행.
+  useEffect(() => {
+    const session_id = getCookie("Session_id")
+    console.log(session_id)
+  }, []);
+
   return (
     <AppPage>
       <HeadMenu></HeadMenu>
@@ -86,6 +96,18 @@ function App() {
           <>
           <LocationSearch p={"store"}/>
           <StoreList></StoreList>
+          </>
+        }></Route>
+
+        <Route path='/login' element={
+          <>
+            <Login ></Login>
+          </>
+        }></Route>
+
+        <Route path='/signup' element={
+          <>
+            <Signup ></Signup>
           </>
         }></Route>
         
