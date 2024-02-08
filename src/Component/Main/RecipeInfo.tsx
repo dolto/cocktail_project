@@ -15,7 +15,9 @@ const RecipeInfo = () => {
     recipeLoad().then(
       (res)=>{
         const result = res.find(
-          recipe => recipe.ID === id
+          recipe => {
+            return recipe.ID.toString() === id
+          }
         );
         setSelectedRecipe(result);
       }

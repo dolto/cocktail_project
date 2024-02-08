@@ -23,4 +23,9 @@ const Keyword = atom<string[]>({
     default:[]
 });
 
-export { Recipes , Stores, Classs, Keyword};
+const SessionID = atom<string|null>({
+    key: "SessionID",
+    default: null
+})
+
+export { Recipes , Stores, Classs, Keyword, SessionID};
