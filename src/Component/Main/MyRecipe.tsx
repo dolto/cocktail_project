@@ -1,8 +1,8 @@
 import { useState } from "react";
 import MyRecipePage from "../../styled/MyRecipe";
 import { Ingredients, Recipe } from "../Fn/Interface/Recipe";
-import setAutoWordText from "../Fn/SetAutoWordText";
-import inputRecipeKeyword from "../Fn/InputRecipe_Keyword copy";
+// import setAutoWordText from "../Fn/SetAutoWordText";
+// import inputRecipeKeyword from "../Fn/InputRecipe_Keyword copy";
 import CustomIngredients from "./CustomIngredients";
 import { isSuccess } from "../Fn/Interface/isLogin";
 
@@ -52,58 +52,95 @@ const MyRecipe = () => {
                 
               
         }}>
+    <header id="RecipeLogo">MY RECIPE</header>
+      <div className="contentWrapper">
+        <div className="mainContent">
+          <div className="leftContent">
             <article className="NameSet">
-                <span className="myRecipeName">국문 제목</span>
-                <input type="text" name="myRecipeName" id="myRecipeNameInput" />
-                <span className="myRecipeName">영문 제목</span>
-                <input type="text" name="myRecipeEngName" id="myRecipeEngNameInput" />
+              <span className="myRecipeName">국문 제목(KOR)</span>
+              <input type="text" name="myRecipeName" id="myRecipeNameInput" />
+              <span className="myRecipeName">영문 제목(ENG)</span>
+              <input
+                type="text"
+                name="myRecipeEngName"
+                id="myRecipeEngNameInput"
+              />
             </article>
-            <article className="NameSet">
-                <span className="myRecipeName">사진</span>
-                <input type="text" name="myRecipeTheumnale" id="myRecipeTheumnaleInput" 
-                onChange={(e) => {
-                    setThemnale(e.currentTarget.value);
-                }}/>
-            </article>
-            <section className="inviewContainer">
-                <section className="inputs">
-                    <section className="taste">
-                        <h2>맛</h2>
-                        <textarea name="taste" className="tasteTextarea"></textarea>
-                    </section>
-                    <section className="ingredients">
-                        <h2>재료</h2>
-                        <button className="addIngredientsBtn" onClick={()=>
-                            setIngredients(v => {v.push({Name:"",Optional:false,Volume:""}); return([...v])})
-                        }>+</button>
-                        {getIngredients.map((data, i) => 
-                            <CustomIngredients key={data.Name+i}
-                            setter={setIngredients}
-                            index={i}
-                            data={data}></CustomIngredients> )}
-                    </section>
-                    <section className="recipe">
-                        <h2>레시피</h2>
-                        <textarea name="recipe" className="recipeTextarea"></textarea>
-                    </section>
-                    <section className="garnish">
-                        <h2>가니쉬</h2>
-                        <textarea name="garnish" className="garnishTextarea"></textarea>
-                    </section>
-                    <section className="history">
-                        <h2>설명</h2>
-                        <textarea name="history" className="historyTextarea"></textarea>
-                    </section>
-                    <nav className="submitNav">
-                        <input type="submit" value="등록" className="submitBtn"/>
-                    </nav>
-                </section>
-                <section className="viewrs">
-                    <img src={getTheumnale} alt="사진이 없습니다." width={720} height={720} />
-                </section>
+            <section className="ingredients">
+              <div className="ingredientsHeader">
+                <h2>재료</h2>
+                <button
+                  className="addIngredientsBtn"
+                  onClick={() =>
+                    setIngredients((v) => {
+                      v.push({ Name: "", Optional: false, Volume: "" });
+                      return [...v];
+                    })
+                  }
+                >
+                  +
+                </button>
+              </div>
+              {getIngredients.map((data, i) => (
+                <div className="ingredientItem">
+                  <CustomIngredients
+                    key={data.Name + i}
+                    setter={setIngredients}
+                    index={i}
+                    data={data}
+                  ></CustomIngredients>
+                </div>
+              ))}
             </section>
-        </MyRecipePage>
-    );
-}
+          </div>
+          <div className="rightContent">
+            <div
+              className="photoBox"
+              style={{
+                backgroundImage: getTheumnale ? `url(${getTheumnale})` : "none",
+              }}
+            >
+              {!getTheumnale && "사진이 없습니다"}
+            </div>
+            <article className="NameSet">
+              <span className="myRecipeName">사진(URL)</span>
+              <input
+                type="text"
+                name="myRecipeTheumnale"
+                id="myRecipeTheumnaleInput"
+                onChange={(e) => {
+                  setThemnale(e.currentTarget.value);
+                }}
+              />
+            </article>
+          </div>
+        </div>
+        <div className="bottomContent">
+          <section className="inputs">
+            <section className="taste">
+              <h2>맛</h2>
+              <textarea name="taste" className="tasteTextarea"></textarea>
+            </section>
+            <section className="recipe">
+              <h2>레시피</h2>
+              <textarea name="recipe" className="recipeTextarea"></textarea>
+            </section>
+            <section className="garnish">
+              <h2>가니쉬</h2>
+              <textarea name="garnish" className="garnishTextarea"></textarea>
+            </section>
+            <section className="history">
+              <h2>설명</h2>
+              <textarea name="history" className="historyTextarea"></textarea>
+            </section>
+          </section>
+          <nav className="submitNav">
+            <input type="submit" value="등록" className="submitBtn" />
+          </nav>
+        </div>
+      </div>
+    </MyRecipePage>
+  );
+};
 
 export default MyRecipe;
