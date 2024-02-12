@@ -21,6 +21,49 @@ React + TypeScript 칵테일 레시피 사이트
 - **Framework** : React(18.2.0)
 - **Database** : 자체 제작 칵테일 레시피•칵테일 바•원데이클래스 API - <a href="https://github.com/PowerGanjiHongin/IBA_Cocktail_recipe_API" >상세보기 - Github로 이동</a>
 
+### 로컬 호스트로 서버 열어보기
+1. Server폴더에 ConnectToMySQL.js 를 생성
+2. 다음과 같이 코드를 작성
+'''Javascript
+const mysql = require('mysql');
+
+function connectToMySQL() {
+    let connection = mysql.createConnection({
+      host: '호스트이름',
+      port : 포트번호,
+      user: '유저명',
+      password: '패스워드',
+      database: 'cocktail_sense',
+      });
+      connection.connect(function(err) {
+        if (err) {
+            console.error('데이터베이스 연결에 실패했습니다. 오류: ' + err.stack);
+            return '데이터베이스 연결에 실패했습니다. 오류: ' + err.stack;
+        }
+        console.log('데이터베이스에 성공적으로 연결되었습니다. 연결 ID: ' + connection.threadId);
+    });
+
+    return connection;
+}
+const options  = {
+    host: '호스트이름',
+    user: '유저명',
+    password: '패스워드',
+    database: 'cocktail_sense',
+    port: 포트번호,
+  
+    clearExpired : true ,             // 만료된 세션 자동 확인 및 지우기 여부
+    checkExpirationInterval: 10000,   // 만료된 세션이 지워지는 빈도 (milliseconds)
+    expiration: 10006060*2,         // 유효한 세션의 최대 기간 2시간으로 설정 (milliseconds) 
+  };
+  module.exports = { connectToMySQL, options };
+'''
+3. 리액트 프로젝트 빌드 '''npm run build'''
+4. build폴더를 Server폴더로 이동
+5. Server폴더의 Server.js를 node로 실행 '''node .\Server\Server.js'''
+6. Dump.zip파일을 압출풀고, mysql에 임포트 (테이블만 임포트 하는 것을 추천)
+7. 사용하는 mysql계정에 mysql_native_password속성 적용 !(자세한건 다음을 참조)[https://1mini2.tistory.com/88]
+
 ## 📌 주요 기능
 #### About US (메인 페이지)
 - 메인 배너 이미지 React-fullpage 라이브러리로 자동 스크롤
@@ -70,3 +113,4 @@ React + TypeScript 칵테일 레시피 사이트
 
 현재 구현된 메서드
 - 모두!
+
