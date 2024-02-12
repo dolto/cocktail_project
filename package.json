@@ -55,7 +55,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/",
+  "homepage": ".",
   "devDependencies": {
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.53",

@@ -50,12 +50,13 @@ const MyRecipe = () => {
                     new_data
                   )
                 }).then(res =>{ 
-                  console.log(res.status);  // HTTP 상태 코드를 출력합니다.
-                  console.log(res.statusText);  // HTTP 상태 메시지를 출력합니다.
-                  console.log(res)
+                  // console.log(res.status);  // HTTP 상태 코드를 출력합니다.
+                  // console.log(res.statusText);  // HTTP 상태 메시지를 출력합니다.
+                  // console.log(res)
                   return res.json()
                 }).then((result : isLogin ) => {
                     console.log(result.msg) 
+                    console.log(result) 
                   if(result.msg === "성공"){
                     alert("등록완료!");
                     nav('/Recipe/Info?id='+result.id_recipe)

@@ -140,7 +140,8 @@ const RecipeSearch = (p:Props) => {
                 {getautoword.length === 0? <></>:
                     <article id="autoword">
                         {getautoword.map((s, i) => {
-                            const result = setAutoWordText(s, gettextvalue);
+                            const result = s === undefined?<></>:
+                            setAutoWordText(s, gettextvalue);
                             return (
                                 <nav id={`auto${i}`} key={s} className={`nav${getcount === i? " hover":''}`}
                                 onMouseEnter={

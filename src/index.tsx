@@ -11,11 +11,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 
-  <HashRouter>
+  // <HashRouter>
+  <BrowserRouter>
     <RecoilRoot>
       <App />
     </RecoilRoot>
-  </HashRouter>
+  </BrowserRouter>
+  // </HashRouter>
 
 );
 

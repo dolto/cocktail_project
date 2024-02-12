@@ -9,7 +9,8 @@ const db = require('./ConnectToMySQL');
 const bodyParser = require("body-parser");
 const bcrypt = require('bcrypt');
 
-app.use(express.static(path.join(__dirname, '/build')));
+// app.use(express.static(path.join(__dirname, '/build')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -125,8 +126,70 @@ app.post("/signup", (req, res) => {  // 데이터 받아서 결과 전송
 
 
 
-app.post("/Import_recipe", (req, res) => {  // 데이터 받아서 결과 전송
-    console.log("여기까지1")
+// app.post("/Import_recipe", (req, res) => {  // 데이터 받아서 결과 전송
+//     // 기타 사항 기본값 정의
+//     const kn_name = req.body.Kor_name;
+//     const en_name = req.body.Name;
+//     const rcip_img = req.body.Image;
+//     const rcip_taste = req.body.Taste;
+//     const rcip_recipe = req.body.Method;
+//     const rcip_garnish = req.body.Garnish;
+//     const rcip_explanation = req.body.Histoy;
+//     // 재료 변수 
+//     const ingredient_count = Object.keys(req.body.Ingredients).length;
+//     let ingredient = "";
+//     let volume = "";
+//     let optional = "";
+//     const sendData = { msg: "", id_recipe:"" };
+//     // 모든 데이터가 정의 되어 있다면 = null이 아니라면
+//     if (kn_name && en_name && rcip_img && rcip_taste && rcip_recipe && rcip_garnish && rcip_explanation) {
+//         //console.log("여기까지4" + kn_name + "11" + en_name+ "11" + rcip_img+ "11" + rcip_taste+ "11" + rcip_recipe + "11"+ rcip_garnish+ "11" + rcip_explanation)
+//         // 데이터 집어넣기
+//         conn.query('INSERT INTO users_recipe (kn_name, en_name, rcip_img, rcip_taste, rcip_recipe, rcip_garnish, rcip_explanation) VALUES(?,?,?,?,?,?,?)', [kn_name, en_name, rcip_img, rcip_taste, rcip_recipe, rcip_garnish, rcip_explanation], function(error, results) { 
+//             // 이후 에러 있으면 뱉기.
+//             console.log("여기까지5")
+//             if (error) throw error;
+//             // 에러 없으면 데이터 삽입 성공
+
+//             getId().then(id => {
+//                 id_recipe = id
+//                 console.log("받아온 아이디 " +id)
+//             }).catch(error => console.error('Error getting id:', error));
+//             setTimeout(function() {
+//             console.log("현재 아이디 발급 완료 : " + id_recipe)
+//                 //재료 테이블 삽입
+//                 for(i = 0; i < ingredient_count; i++){
+//                     ingredient = req.body.Ingredients[i].Name;
+//                     volume = req.body.Ingredients[i].Volume;
+//                     optional = req.body.Ingredients[i].Optional;
+//                     if (id_recipe && ingredient && volume) {
+//                         // 쿼리문 집어넣기
+//                         conn.query('INSERT INTO recipe_ingredient (id_recipe, ingredient, volume, optional) VALUES(?,?,?,?)', [id_recipe, ingredient, volume, optional], function(error, results, fields) {
+//                             // 이후 에러 있으면 뱉기.
+//                             if (error) throw error;
+//                             // 에러 없으면 데이터 삽입 성공.
+//                             sendData.msg = "성공"
+//                             sendData.id_recipe = id_recipe+"";
+//                             console.log(sendData.msg)
+//                             // res.send(sendData);
+//                         });
+//                     }
+//                     else {
+//                         console.log("항목 작성 실패")
+//                         sendData.msg = "모든 항목을 작성해 주세요."
+//                         return;
+//                     }
+//                 }
+//             }, 3000);
+//         });        
+//     }else{
+//         res.send(sendData);
+//     }
+//     console.log("모든 재료 삽입 완료")
+//     res.send(sendData);
+// });
+
+app.post("/Import_recipe", async (req, res) => {
     // 기타 사항 기본값 정의
     const kn_name = req.body.Kor_name;
     const en_name = req.body.Name;
@@ -135,62 +198,52 @@ app.post("/Import_recipe", (req, res) => {  // 데이터 받아서 결과 전송
     const rcip_recipe = req.body.Method;
     const rcip_garnish = req.body.Garnish;
     const rcip_explanation = req.body.Histoy;
-    console.log("여기까지2")
     // 재료 변수 
     const ingredient_count = Object.keys(req.body.Ingredients).length;
-    console.log("여기까지3" + ingredient_count)
     let ingredient = "";
     let volume = "";
     let optional = "";
-    const sendData = { msg: "", id_recipe:"" };
-    // 모든 데이터가 정의 되어 있다면 = null이 아니라면
-    if (kn_name && en_name && rcip_img && rcip_taste && rcip_recipe && rcip_garnish && rcip_explanation) {
-        //console.log("여기까지4" + kn_name + "11" + en_name+ "11" + rcip_img+ "11" + rcip_taste+ "11" + rcip_recipe + "11"+ rcip_garnish+ "11" + rcip_explanation)
-        // 데이터 집어넣기
-        // 개많네 진짜.
-        conn.query('INSERT INTO users_recipe (kn_name, en_name, rcip_img, rcip_taste, rcip_recipe, rcip_garnish, rcip_explanation) VALUES(?,?,?,?,?,?,?)', [kn_name, en_name, rcip_img, rcip_taste, rcip_recipe, rcip_garnish, rcip_explanation], function(error, results) { 
-            // 이후 에러 있으면 뱉기.
-            console.log("여기까지5")
-            if (error) throw error;
-            console.log("여기까지6")
-            // 에러 없으면 데이터 삽입 성공
+    const sendData = { msg: "", id_recipe: "" };
 
-            getId().then(id => {
-                id_recipe = id
-                console.log("받아온 아이디 " +id)
-            }).catch(error => console.error('Error getting id:', error));
-            setTimeout(function() {
-            console.log("현재 아이디 발급 완료 : " + id_recipe)
-                //재료 테이블 삽입
-                for(i = 0; i < ingredient_count; i++){
-                    ingredient = req.body.Ingredients[i].Name;
-                    volume = req.body.Ingredients[i].Volume;
-                    optional = req.body.Ingredients[i].Optional;
-                    if (id_recipe && ingredient && volume) {
-                        // 쿼리문 집어넣기
-                        conn.query('INSERT INTO recipe_ingredient (id_recipe, ingredient, volume, optional) VALUES(?,?,?,?)', [id_recipe, ingredient, volume, optional], function(error, results, fields) {
-                            // 이후 에러 있으면 뱉기.
-                            if (error) throw error;
-                            // 에러 없으면 데이터 삽입 성공.
-                            sendData.msg = "성공"
-                            sendData.id_recipe = id_recipe+"";
-                            res.send(sendData);
-                        });
-                    }
-                    else {
-                        sendData.msg = "모든 항목을 작성해 주세요."
-                        res.send(sendData);
-                        return;
-                    }
-                } 
-            }, 3000);
-        });        
-    } else {
-        res.send(sendData);
+    try {
+        if (kn_name && en_name && rcip_img && rcip_taste && rcip_recipe && rcip_garnish && rcip_explanation) {
+            // 데이터 집어넣기
+            const insertRecipeQuery = 'INSERT INTO users_recipe (kn_name, en_name, rcip_img, rcip_taste, rcip_recipe, rcip_garnish, rcip_explanation) VALUES(?,?,?,?,?,?,?)';
+            const results = await conn.query(insertRecipeQuery, [kn_name, en_name, rcip_img, rcip_taste, rcip_recipe, rcip_garnish, rcip_explanation]);
+
+            // 에러 없으면 데이터 삽입 성공
+            const id_recipe = await getId();
+            console.log("받아온 아이디 " + id_recipe);
+
+            // 재료 테이블 삽입
+            for (let i = 0; i < ingredient_count; i++) {
+                ingredient = req.body.Ingredients[i].Name;
+                volume = req.body.Ingredients[i].Volume;
+                optional = req.body.Ingredients[i].Optional;
+
+                if (id_recipe && ingredient && volume) {
+                    // 쿼리문 집어넣기
+                    const insertIngredientQuery = 'INSERT INTO recipe_ingredient (id_recipe, ingredient, volume, optional) VALUES(?,?,?,?)';
+                    await conn.query(insertIngredientQuery, [id_recipe, ingredient, volume, optional]);
+                } else {
+                    console.log("항목 작성 실패");
+                    sendData.msg = "모든 항목을 작성해 주세요.";
+                    res.send(sendData);
+                    return;
+                }
+            }
+
+            console.log("모든 재료 삽입 완료");
+            sendData.msg = "성공";
+            sendData.id_recipe = id_recipe + "";
+            res.send(sendData);
+        } else {
+            res.send(sendData);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send("서버 에러");
     }
-    console.log("모든 재료 삽입 완료")
-    sendData.isSuccess = "모든 재료 삽입 성공"
-    // res.send(sendData);
 });
 
 
@@ -243,8 +296,8 @@ app.get('/getRecipes', async (req, res) => {
 //         res.send(results);
 //     })
 // })
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
   });
 
 app.listen(port, () => {

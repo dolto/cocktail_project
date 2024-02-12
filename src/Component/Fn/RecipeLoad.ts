@@ -1,5 +1,5 @@
 import getData from "./GetDataFn";
-import {Recipe} from "./Interface/Recipe";
+import {Ingredients, Recipe} from "./Interface/Recipe";
 
 interface Cocktail_api {
     "Cocktail":{
@@ -32,7 +32,13 @@ const recipeLoad = async (): Promise<Recipe[]> => {
             Name: db.en_name,
             Kor_name: db.kn_name,
             Taste : db.rcip_taste,
-            Ingredients: db.ingredient,
+            Ingredients: db.ingredient.map((ing: any)=>{
+                return {
+                    Name: ing.ingredient,
+                    Optional: ing.optional,
+                    Volume: ing.volume
+                } as Ingredients;
+            }),
             Method: db.rcip_recipe,
             Garnish: db.rcip_garnish,
             Histoy: db.rcip_explanation,
