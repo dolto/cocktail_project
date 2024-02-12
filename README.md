@@ -20,6 +20,7 @@ React + TypeScript 칵테일 레시피 사이트
 - **Editor** : Visual Studio Code
 - **Framework** : React(18.2.0)
 - **Database** : 자체 제작 칵테일 레시피•칵테일 바•원데이클래스 API - <a href="https://github.com/PowerGanjiHongin/IBA_Cocktail_recipe_API" >상세보기 - Github로 이동</a>
+- **MySQL** : MyRecipe 부분 추가를 위해 데이터베이스를 생성
 
 ### 로컬 호스트로 서버 열어보기
 1. Server폴더에 ConnectToMySQL.js 를 생성
