@@ -62,7 +62,7 @@ const options  = {
 4. build폴더를 Server폴더로 이동
 5. Server폴더의 Server.js를 node로 실행 '''node .\Server\Server.js'''
 6. Dump.zip파일을 압출풀고, mysql에 임포트 (테이블만 임포트 하는 것을 추천)
-7. 사용하는 mysql계정에 mysql_native_password속성 적용 !(https://1mini2.tistory.com/88)[자세한건 다음을 참조]
+7. 사용하는 mysql계정에 mysql_native_password속성 적용 (https://1mini2.tistory.com/88)[자세한건 다음을 참조]
 
 ## 📌 주요 기능
 #### About US (메인 페이지)
