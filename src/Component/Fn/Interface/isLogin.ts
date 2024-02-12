@@ -1,10 +1,11 @@
 export interface isLogin {
-    isLogin: string
+    msg: string,
+    id_recipe?:string
 }
 
-export interface isSuccess {
-    isSuccess: string
-}
+// export interface isSuccess {
+//     isSuccess: string
+// }
 
 export interface users_Recipe{
     id_recipe : BigInteger

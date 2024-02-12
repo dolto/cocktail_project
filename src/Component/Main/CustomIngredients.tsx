@@ -34,7 +34,7 @@ const CustomIngredients = (props: customIngredientsProps) => {
     }
     return(
         <article className="customIngredients">
-            <span>재료명</span><input type="text" value={getData.Name} onBlur={(e)=>{
+            <span>재료</span><input type="text" value={getData.Name} onBlur={(e)=>{
                 if(getautoword.length > 2)
                     e.currentTarget.focus();
             }}
@@ -63,7 +63,10 @@ const CustomIngredients = (props: customIngredientsProps) => {
                             setautoword([]);
                             indexChange();
                         }}>
-                            {setAutoWordText(str, getData.Name)}
+                            {
+                                str === undefined?<></>:
+                                setAutoWordText(str, getData.Name)
+                            }
                             </nav>);
                 })}
             </section>
@@ -81,13 +84,13 @@ const CustomIngredients = (props: customIngredientsProps) => {
                     indexChange();
                 }
                 }}/>
-            <span>옵셔널</span><input type="checkbox" checked={getData.Optional}
+            <span>옵션</span><input type="checkbox" checked={getData.Optional}
             name="Optional" id="OptionalInput" 
             onChange={(e)=>{
                 setData(d => {
                     console.log(e.currentTarget);
-                    if(e.currentTarget instanceof HTMLInputElement)
-                        d.Optional=e.currentTarget.checked; 
+                    d.Optional=!d.Optional;
+                        
                     return {...d};
                 });
                 indexChange();

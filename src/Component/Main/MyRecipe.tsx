@@ -1,18 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MyRecipePage from "../../styled/MyRecipe";
 import { Ingredients, Recipe } from "../Fn/Interface/Recipe";
 // import setAutoWordText from "../Fn/SetAutoWordText";
 // import inputRecipeKeyword from "../Fn/InputRecipe_Keyword copy";
 import CustomIngredients from "./CustomIngredients";
-import { isSuccess } from "../Fn/Interface/isLogin";
+// import { isSuccess } from "../Fn/Interface/isLogin";
+import { useRecoilState } from "recoil";
+import { SessionID } from "../atom";
+import { useNavigate} from "react-router-dom";
+import { isLogin } from "../Fn/Interface/isLogin";
 
 
 
 const MyRecipe = () => {
     let [getTheumnale, setThemnale] = useState<string>('');
     let [getIngredients, setIngredients] = useState<Ingredients[]>([]);
+    const [getSessionID, setSessionID] = useRecoilState<string|null>(SessionID);
+    const nav = useNavigate();
 
-    
+    useEffect(() => {
+      if (getSessionID === null){
+        alert("로그인 부터 해주세요!")
+        nav('/');
+      }
+    });
 
     return(
         <MyRecipePage onSubmit={(e) => {
@@ -43,10 +54,11 @@ const MyRecipe = () => {
                   console.log(res.statusText);  // HTTP 상태 메시지를 출력합니다.
                   console.log(res)
                   return res.json()
-                }).then((result : isSuccess ) => {
-                    console.log(result.isSuccess) 
-                  if(result.isSuccess === "True"){
-
+                }).then((result : isLogin ) => {
+                    console.log(result.msg) 
+                  if(result.msg === "성공"){
+                    alert("등록완료!");
+                    nav('/Recipe/Info?id='+result.id_recipe)
                   }
                 }).catch(error => {console.log("에러 내용 : " +error)})
                 

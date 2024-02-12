@@ -134,6 +134,31 @@ const MyRecipePage = styled.form`
     }
   }
 
+  .word{
+      transition: 0.3s;
+  }
+  .word:hover{
+      transition: 0.3s;
+      background-color: #ff6c40;
+  }
+  .choise{
+      background-color: #ff6c40;
+  }
+  .customIngredients{
+      position: relative;
+  }
+  .customIngredients > input{
+      height: 1rem;
+  }
+  .AutoWord{
+      z-index: 12;
+      position: absolute;
+      top: 2rem;
+      left: 5rem;
+      background-color: #a4a4a4;
+      color: black;
+  }
+
   .bottomContent {
     width: 100%;
     display: flex;

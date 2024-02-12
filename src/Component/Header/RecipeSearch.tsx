@@ -36,7 +36,8 @@ const RecipeSearch = (p:Props) => {
     
     useEffect(
         () => {
-            if(getkeyword.length === 0){
+            if((getkeyword.length === 0 && getcategory === "ingredient") 
+            || (getcategory === "name" && gettextvalue === "")){
                 recipeLoad().then(
                     res =>
                     setrecipes([res,[]]) 
@@ -79,7 +80,7 @@ const RecipeSearch = (p:Props) => {
                         setautoword(await inputRecipeKeyword(e.currentTarget.value));
                     }}
                     onBlur={(e)=>{e.currentTarget.focus()}}/> :
-                    <input type="text" id="input" placeholder="이름을 입력해보세요"
+                    <input type="text" id="input" placeholder="이름을 입력해보세요" value={gettextvalue}
                     onChange={async (e) => {
                         settextvalue(e.currentTarget.value);
                         setautoword(await inputRecipeCocktailName(e.currentTarget.value));
@@ -93,6 +94,12 @@ const RecipeSearch = (p:Props) => {
                         async (e) => {
                             e.preventDefault();
                             if(getcategory === "name"){
+                                if(gettextvalue === ""){
+                                    recipeLoad().then(
+                                        res =>
+                                        setrecipes([res,[]]) 
+                                    );
+                                }
                                 const recipes = await getrecipes;
                                 const result = searchRecipeCocktailName(recipes[0].concat(recipes[1]), gettextvalue);
                                 console.log(result);
@@ -152,7 +159,7 @@ const RecipeSearch = (p:Props) => {
                                         const recipes = await getrecipes;
                                         const result = searchRecipeCocktailName(recipes[0].concat(recipes[1]), s);
                                         setautoword([]);
-                                        settextvalue("");
+                                        settextvalue(s);
                                         console.log(result);
                                         setrecipes([result,[]]);
                                         return;

@@ -32,9 +32,12 @@ const Signup = () => {
       console.log(res)
       return res.json()
     }).then((json : isLogin) => {
-        console.log(json.isLogin) 
-      if(json.isLogin === "True"){
+      console.log("msg") 
+        console.log(json.msg) 
+      if(json.msg === "성공"){
         nav('/login')
+      }else{
+        alert(json.msg);
       }
     }).catch(error => {console.log("에러 내용 : " +error)})
     

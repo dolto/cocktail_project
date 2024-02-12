@@ -34,7 +34,7 @@ const Login = () => {
       return res.json()
     }).then((json) => {
         console.log(json) 
-        console.log(json.is_logined)
+        console.log(json.msg)
         if(json.is_logined){
           
           setSessionID(json.is_logined);
