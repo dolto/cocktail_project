@@ -24,7 +24,7 @@ React + TypeScript 칵테일 레시피 사이트
 ### 로컬 호스트로 서버 열어보기
 1. Server폴더에 ConnectToMySQL.js 를 생성
 2. 다음과 같이 코드를 작성
-'''javascript
+'''
 const mysql = require('mysql');
 
 function connectToMySQL() {
